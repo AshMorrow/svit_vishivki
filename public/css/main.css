@@ -1,0 +1,130 @@
+/***
+    Main part
+ */
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+    }
+}
+
+.container {
+    max-width: 1404px;
+}
+
+.main_top_nav {
+    display: flex;
+    justify-content: center;
+    height: 61px;
+    align-items: center;
+    /* margin-bottom: 10px; */
+    border-bottom: 1px solid #eae9e9;
+}
+
+.main_top_nav div {
+    display: flex;
+}
+
+.main_top_nav .language_change {
+    width: 100px;
+}
+
+.main_top_nav .info_nav {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.main_top_nav .info_nav a {
+    color: #ec4c4c;
+    font-size: 1.4rem;
+    margin: 0 30px 0 0;
+    display: inline-block;
+}
+
+.main_top_nav .info_nav a:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+.main_top_nav .cart {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main_top_nav .cart i {
+    color: #888888;
+    font-size: 2.3rem;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+.main_top_nav .cart a {
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.main_top_nav .cart .cart_item_counter{
+    background-color: #ec4c4c;
+    margin-left: 5px;
+}
+
+.m_header_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 28px 0 27px;
+    height: 56px;
+}
+
+.m_header_container > div {
+    display: flex;
+    justify-content: center;
+}
+
+.m_header_left {
+    text-align: right;
+    flex-direction: column;
+}
+
+.m_header_left .m_header_phone {
+    font-size: 3rem;
+}
+
+/**
+    Main menu
+ */
+
+#main_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    /* margin-top: 20px; */
+    /*margin-bottom: 20px;*/
+}
+
+#main_menu a {
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 0 16px;
+    display: inline-block;
+}
+
+#main_menu a:hover {
+    color: #ec4c4c;
+    text-decoration: none;
+    border-bottom: 0;
+}
+footer{
+    height: 60px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+
+footer .corporate_info{
+    text-align: center;
+    border-top: 1px solid #eae9e9;
+}
