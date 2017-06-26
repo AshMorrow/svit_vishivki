@@ -1,20 +1,19 @@
-
-var Cookie = new function () {
+var Cookie = {
 
     // возвращает cookie с именем name, если есть, если нет, то undefined
-    this.get = function (name) {
+    get: function (name) {
         var matches = document.cookie.match(new RegExp(
             "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
         ));
         return matches ? decodeURIComponent(matches[1]) : undefined;
-    };
+    },
 
     // устанавливает cookie с именем name и значением value
     // options - объект с свойствами cookie (expires, path, domain, secure)
-    this.set = function(name, value, options) {
+    set: function(name, value, options) {
         options = options || {};
 
-        var expires = options.expires;
+         expires = options.expires;
 
         if (typeof expires == "number" && expires) {
             var d = new Date();
@@ -38,11 +37,11 @@ var Cookie = new function () {
         }
 
         document.cookie = updatedCookie;
-    };
+    },
 
     // удаляет cookie с именем name
-    this.delete = function (name) {
-        setCookie(name, "", {
+    delete: function (name) {
+        this.set(name, "", {
             expires: -1
         })
     }

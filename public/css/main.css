@@ -1,3 +1,10 @@
+.noselect{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
 /***
     Main part
  */
@@ -34,7 +41,7 @@
 }
 
 .main_top_nav .info_nav a {
-    color: #ec4c4c;
+    color: #fd5397;
     font-size: 1.4rem;
     margin: 0 30px 0 0;
     display: inline-block;
@@ -44,10 +51,17 @@
     text-decoration: none;
     color: #000;
 }
+#top_cart .tc_small_container{
+    cursor: pointer;
+    height: 100%;
+    align-items: center;
 
+}
 .main_top_nav .cart {
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    height: 100%;
 }
 
 .main_top_nav .cart i {
@@ -65,10 +79,100 @@
 }
 
 .main_top_nav .cart .cart_item_counter{
-    background-color: #ec4c4c;
+    background-color: #fd5397;
     margin-left: 5px;
 }
 
+/***
+    Show small cart
+ */
+
+#small_shop_cart{
+    width: 450px;
+    position: absolute;
+    z-index: 9;
+    background: #fff;
+    top: 60px;
+    box-shadow: 0 0 10px -3px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: auto;
+}
+#small_shop_cart .sh_label{
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+#small_shop_cart .sh_items{
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+#small_shop_cart .sh_item{
+    border-bottom: 1px solid #eae9e9;
+    padding: 10px 0px;
+    flex-grow: 1;
+    display: flex;
+}
+#small_shop_cart .sh_item_information{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+#small_shop_cart .sh_item_information .item_name{
+    font-size: 1.8rem;
+}
+#small_shop_cart .sh_item_quantity input{
+    border: 0;
+    background-color: #eae9e9;
+    width: 40px;
+    border-radius: 5px;
+    text-align: center;
+    height: 40px;
+    font-size: 16px;
+    outline: 0;
+}
+#small_shop_cart .sh_remove_item{
+    align-items: center;
+    width: 35px;
+}
+#small_shop_cart .sh_remove_item span{
+    font-size: 2rem;
+}
+ #small_shop_cart .sh_remove_item:hover span{
+     color: #ec4c4c;
+     cursor: pointer;
+ }
+#small_shop_cart .sh_image_container{
+    width: 80px;
+}
+#small_shop_cart img{
+    max-width: 80px;
+    max-height: 80px;
+}
+
+#small_shop_cart .sh_open_full_cart a{
+    padding: 15px 0;
+    text-align: center;
+    background: #fd5397;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    box-shadow: 0 0 5px -6px #888 inset;
+    top: 0;
+}
+#small_shop_cart .sh_open_full_cart a:active{
+    transition: all 0.3s;
+    margin-top:1px;
+    box-shadow: 0 0 8px 0px #888 inset
+}
+/**
+    Main header (logo, contacts)
+ */
 .m_header_container {
     display: flex;
     justify-content: center;
@@ -127,4 +231,69 @@ footer{
 footer .corporate_info{
     text-align: center;
     border-top: 1px solid #eae9e9;
+}
+
+/***
+    carousel styles
+ */
+
+.carousel_nav_container a{
+    color: #888;
+    font-size: 2.5rem;
+    text-decoration: none;
+}
+
+.carousel_nav_container a:hover,.carousel_nav_container a:active{
+    color: #fd5397;
+    cursor: pointer;
+}
+
+#carousel_new_products .photo{
+    display: flex;
+    justify-content: center;
+}
+#carousel_new_products .photo img{
+    max-height: 384px;
+}
+#carousel_new_products .btn-add{
+    outline: none;
+    border: none;
+    background-color: #fd5397;
+    width: 188px;
+    padding: 13px 0;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    align-items: center;
+    transition: all 0.3s;
+}
+#carousel_new_products .btn-add i{
+    font-size: 3rem;
+    margin-right: 5px;
+}
+
+#carousel_new_products .btn-add:hover{
+    transition: all 0.3s;
+    background-color: #000;
+}
+
+#carousel_new_products .btn-add:active{
+    margin-top: 2px;
+}
+
+#carousel_new_products .price{
+    text-align: center;
+}
+
+#carousel_new_products .slide_product_price{
+    font-size: 2rem;
+    color: #fd5397;
+}
+
+#carousel_new_products .slide_product_name{
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
 }

@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'ShopController@main');
+Route::get('cart', 'CartController@show');
+
 
 Auth::routes();
 

@@ -44,16 +44,17 @@
         <div class="container">
             <div class="row">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div>
                         <!-- Controls -->
-                        <div class="controls pull-right hidden-xs">
-                            <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example"
-                               data-slide="prev"></a><a class="right fa fa-chevron-right btn btn-success" href="#carousel-example"
-                                                        data-slide="next"></a>
+                        <div class="controls pull-right carousel_nav_container">
+                            <a class="left fa fa-chevron-left" href="#carousel_new_products"
+                               data-slide="prev"><i data-icon="a"></i></a>
+                            <a class="right fa fa-chevron-right" href="#carousel_new_products"
+                               data-slide="next"><i data-icon="b"></i></a>
                         </div>
                     </div>
                 </div>
-                <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                <div id="carousel_new_products" class="carousel slide hidden-xs" data-ride="carousel">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
@@ -61,28 +62,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Sample Product</h5>
-                                                    <h5 class="price-text-color">
-                                                        $199.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="fa fa-star"></i>
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Товар 1</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><button onclick="Cart.add(1)">Add to cart</button>
-                                                </p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(1,'Товар 1')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -92,24 +86,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Product Example</h5>
-                                                    <h5 class="price-text-color">
-                                                        $249.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Товар 2</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><button onclick="Cart.add(2)">Add to cart</button></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(2,'Товар 2')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -119,27 +110,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Next Sample Product</h5>
-                                                    <h5 class="price-text-color">
-                                                        $149.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="fa fa-star"></i>
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Блуза для женщин, принт "Ромашки"</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(1,'Товар 1')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -149,27 +134,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Sample Product</h5>
-                                                    <h5 class="price-text-color">
-                                                        $199.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="fa fa-star"></i>
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Блуза для женщин, принт "Ромашки"</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(1,'Товар 1')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -183,27 +162,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Product with Variants</h5>
-                                                    <h5 class="price-text-color">
-                                                        $199.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="fa fa-star"></i>
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Блуза для женщин, принт "Ромашки"</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(1,'Товар 1')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -213,24 +186,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Grouped Product</h5>
-                                                    <h5 class="price-text-color">
-                                                        $249.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Блуза для женщин, принт "Ромашки"</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(1,'Товар 1')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
@@ -240,57 +210,21 @@
                                 <div class="col-sm-3">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                                            <img src="/storage/productImages/thumbs/1/1.jpg" class="img-responsive"
+                                                 alt="a"/>
                                         </div>
                                         <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Product with Variants</h5>
-                                                    <h5 class="price-text-color">
-                                                        $149.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="fa fa-star"></i>
-                                                </div>
+                                            <div class="price">
+                                                <h5 class="slide_product_price">$199.99</h5>
+                                                <h5 class="slide_product_name">Блуза для женщин, принт "Ромашки"</h5>
                                             </div>
                                             <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
-                                            </div>
-                                            <div class="clearfix">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3">
-                                    <div class="col-item">
-                                        <div class="photo">
-                                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
-                                        </div>
-                                        <div class="info">
-                                            <div class="row">
-                                                <div class="price col-md-6">
-                                                    <h5>
-                                                        Product with Variants</h5>
-                                                    <h5 class="price-text-color">
-                                                        $199.99</h5>
-                                                </div>
-                                                <div class="rating hidden-sm col-md-6">
-                                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
-                                                    </i><i class="fa fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="separator clear-left">
-                                                <p class="btn-add">
-                                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
-                                                <p class="btn-details">
-                                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                                                <button class="btn-add" onclick="Cart.add(1,'Товар 1')">
+                                                    <i class="lnr lnr-cart"></i>
+                                                    <span>
+                                                        Добавить в корзину
+                                                    </span>
+                                                </button>
                                             </div>
                                             <div class="clearfix">
                                             </div>
