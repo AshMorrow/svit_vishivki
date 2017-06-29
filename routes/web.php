@@ -13,6 +13,7 @@
 
 Route::get('/', 'ShopController@main');
 Route::get('cart', 'CartController@show');
+Route::post('cart', 'CartController@create_order');
 
 
 Auth::routes();

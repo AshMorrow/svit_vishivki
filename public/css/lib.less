@@ -1,0 +1,12 @@
+.displayFlex(@direction: column, @align: flex-start, @justify: flex-start, @grow: 0) {
+  display: flex;
+  flex-direction: @direction;
+  align-items: @align;
+  justify-content: @justify;
+  flex-grow: @grow;
+}
+
+.gradientSeparator() {
+  @list: transparent 15%, @borderLineColor 70%, transparent 15%;
+  background-image: svg-gradient(to right, @list);
+}

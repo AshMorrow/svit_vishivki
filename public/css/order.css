@@ -1,0 +1,194 @@
+.wrapper {
+  display: flex;
+}
+#order_form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+#order_form label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  margin-right: 10px;
+  width: 100%;
+  position: relative;
+}
+#order_form label div {
+  width: 150px;
+  flex-shrink: 0;
+}
+#order_form label input,
+#order_form label select {
+  border: 0;
+  background: #f6f6f6;
+  outline: 0;
+  width: 100%;
+  padding: 10px 5px;
+}
+#order_form label select {
+  cursor: pointer;
+}
+#order_form label textarea {
+  background: #f6f6f6;
+  resize: none;
+  border: 0;
+  width: 100%;
+  height: 120px;
+  padding: 5px;
+  font-weight: 300;
+  outline: 0;
+}
+#order_form .response {
+  position: absolute;
+  top: 50px;
+  width: 429px;
+  max-height: 245px;
+  z-index: 9;
+  overflow: auto;
+  background: #fff;
+  box-shadow: 0px 0px 10px -3px;
+  padding: 10px 5px;
+}
+#order_form .response span {
+  margin-right: 10px;
+}
+#order_form .response div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-grow: 0;
+  width: 100%;
+  padding: 5px;
+}
+#order_form .response div:hover {
+  background: #fd5397;
+  color: #fff;
+  cursor: pointer;
+}
+#order_form #o_new_post_container {
+  width: 100%;
+}
+#order_form button {
+  padding: 15px 0;
+  text-align: center;
+  background: #fd5397;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 0 5px -6px #888 inset;
+  top: 0;
+  border: none;
+  margin-top: 10px;
+  transition: .3s ease;
+}
+#order_form button:hover {
+  background: #000;
+  transition: .3s ease;
+}
+#order_form button:active {
+  margin-top: 11px;
+}
+.ui-autocomplete {
+  max-height: 245px;
+  overflow-y: auto;
+  /* prevent horizontal scrollbar */
+  overflow-x: hidden;
+}
+.ui-state-active {
+  background: #fd5397 !important;
+  border-color: #fd5397 !important;
+}
+#order_products_list {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+#order_products_list .o_product {
+  display: flex;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eae9e9;
+}
+#order_products_list .o_product .o_product_details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-grow: 1;
+  width: 100%;
+}
+#order_products_list .o_product .o_product_details .o_product_name {
+  width: 100%;
+  border-bottom: 1px solid #eae9e9;
+}
+#order_products_list .o_product .o_product_details .o_product_name span {
+  font-size: 2rem;
+}
+#order_products_list .o_product .o_product_details .o_product_characteristics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 1;
+  width: 100%;
+}
+#order_products_list .o_product .o_product_details .o_product_characteristics .o_char_group,
+#order_products_list .o_product .o_product_details .o_product_characteristics .o_quantity {
+  flex-grow: 1;
+}
+#order_products_list .o_product .o_product_details .o_product_characteristics .o_product_price {
+  margin-right: 15px;
+  font-size: 1.8rem;
+}
+#order_products_list .o_product .quantity {
+  border: 0;
+  width: 40px;
+  border: 1px solid #fd5397;
+  border-radius: 5px;
+  text-align: center;
+  height: 40px;
+  font-size: 16px;
+  outline: 0;
+}
+#order_products_list .o_product .o_product_remove {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 0;
+  font-size: 2.5rem;
+  transition: .3s ease;
+  top: -2px;
+  position: relative;
+}
+#order_products_list .o_product .o_product_remove:hover {
+  transition: .3s ease;
+  cursor: pointer;
+  color: #fd5397;
+}
+#order_products_list .o_product .o_product_img_container {
+  width: 152px;
+  margin-right: 10px;
+  flex-shrink: 0;
+  text-align: center;
+}
+#order_products_list .o_product .o_product_img_container img {
+  max-height: 152px;
+  max-width: 152px;
+}
+.o_price_total {
+  font-size: 2.5rem;
+  text-align: right;
+}
+.o_price_total #total_price {
+  color: #fd5397;
+}

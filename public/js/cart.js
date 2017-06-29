@@ -12,6 +12,12 @@ var Cart = {
         })
     },
 
+    /**
+     * This function add html element width product.
+     * Used in function add.
+     * @param productId
+     * @param productName
+     */
     addProductToSmallCart: function (productId, productName) {
         console.log('product');
         var mainContainer = document.createElement('div');
@@ -24,16 +30,21 @@ var Cart = {
             <div class="sh_item_information">
                 <div class="item_name">${productName}</div>
                 <div class="sh_item_quantity">
-                    <input type="text" value="1" data-product-id=${productId} onchange="Cart.chQuantity(this)">
+                    <input type="text" class="quantity" value="1" data-product-id=${productId} onchange="Cart.chQuantity(this)">
                 </div>
             </div>
-            <div class="sh_remove_item" onclick="Cart.delete(this)">
+            <div class="sh_remove_item" onclick="Cart.delete(productId)">
                <span data-icon="f"></span>
             </div>`;
 
         $('#small_shop_cart .sh_items').append(mainContainer);
     },
 
+    /**
+     * Add item to product cart
+     * @param productId
+     * @param productName
+     */
     add: function (productId, productName) {
         if (typeof(productId) != 'number') return;
         if (typeof(productName) != 'string' || productName == '') {
@@ -85,59 +96,48 @@ var Cart = {
 
     },
 
-    show: function () {
+    delete: function (productId) {
 
-
-        var mainContainer = document.createElement('div');
-        mainContainer.className = 'small_cart_full';
-
-
-    },
-
-    delete: function (obj){
-
-        var container = $(obj).parent();
-        var productId = container.attr('data-product-id');
         var productInCart = Cookie.get('productInCart');
 
         if (productInCart) {
             productInCart = JSON.parse(productInCart);
-            console.log(productInCart.items[0]);
-            productInCart.items.map(function (product,i,arr) {
-
+            productInCart.items.map(function (product, i, arr) {
                 if (product.id == productId) {
                     arr.splice(i, 1);
+                    Cart.recountTotalPrice(0,product.quantity,productId)
                 }
             });
 
-            if(productInCart.items.length){
+            if (productInCart.items.length) {
                 Cookie.set('productInCart', JSON.stringify(productInCart), {
-                    expires: 3600,
+                    expires: 36000,
                     path: '/'
                 });
-            }else{
-               Cookie.delete('productInCart');
+            } else {
+                Cookie.delete('productInCart');
             }
 
         }
         this.decreaseCounter();
-        container.remove();
+        $('.cart_item[data-id=' + productId + ']').remove();
 
     },
-
-    chQuantity: function (obj) {
+    chQuantity: function (obj, productId) {
         var quantity = parseInt($(obj).val());
         if (quantity > 0) {
-            var productId = $(obj).attr('data-product-id');
             var productInCart = Cookie.get('productInCart');
             if (productInCart) {
                 productInCart = JSON.parse(productInCart);
+                var previousQuantity;
                 productInCart.items.map(function (product) {
                     if (product.id == productId) {
+                        previousQuantity = product.quantity;
                         product.quantity = quantity;
                     }
                 });
-
+                this.recountTotalPrice(previousQuantity,quantity,productId);
+                $('.cart_item[data-id=' + productId + ']').find('.quantity').val(quantity);
                 Cookie.set('productInCart', JSON.stringify(productInCart), {
                     expires: 3600,
                     path: '/'
@@ -146,10 +146,22 @@ var Cart = {
         }
     },
 
-    smallOpenToggle: function(){
+    recountTotalPrice: function (prevQuantity, quantity, productId) {
+        var totalPrice = parseInt($('#total_price').text());
+        if (totalPrice) {
+            var productPrice = parseInt($('.cart_item[data-id=' + productId + ']').find('.product_price').text());
+            if(prevQuantity > 0){
+                totalPrice -= productPrice * prevQuantity;
+                totalPrice += productPrice * quantity;
+            }else{
+                totalPrice -= productPrice * quantity;
+            }
 
-        $('#small_shop_cart').fadeToggle();
-
+            $('#total_price').text(totalPrice);
+        }
     },
 
+    smallOpenToggle: function () {
+        $('#small_shop_cart').fadeToggle();
+    },
 };

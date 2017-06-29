@@ -14,6 +14,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->composerNavigation();
+        $this->composerRestoreSmallCart();
     }
 
     /**
@@ -27,8 +28,10 @@ class ViewComposerServiceProvider extends ServiceProvider
     }
 
     public function composerNavigation(){
-
         view()->composer('pages.include._mainNav','App\Http\Composer\NavigationComposer');
+    }
 
+    public function composerRestoreSmallCart(){
+        view()->composer('pages.include._smallCart','App\Http\Composer\SmallCartComposer');
     }
 }

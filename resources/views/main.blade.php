@@ -4,13 +4,20 @@
     <title>@yield('title')</title>
 
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/jquery-ui/jquery-ui.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/mainPage.css">
+    <link rel="stylesheet" href="/css/order.css">
+
 
     <script src="/js/jquery.min.js"></script>
     <script src="/bootstrap/js/bootstrap.js"></script>
     <script src="/js/cookie.js"></script>
     <script src="/js/cart.js"></script>
+    <script src="/js/order.js"></script>
+    <script src="/js/maskedinput.min.js"></script>
+    <script src="/js/newPost.js"></script>
+    <script src="/jquery-ui/jquery-ui.js"></script>
 
     <!-- favicon star -->
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
@@ -48,13 +55,7 @@
             <a href="#">Возврат</a>
         </div>
         <div class="cart" id="top_cart">
-            <div  onclick="Cart.smallOpenToggle();" class="tc_small_container noselect">
-                <i class="lnr lnr-cart"></i>
-                <span>Корзина</span>
-                <span class="badge cart_item_counter">0</span>
-            </div>
-            <!-- shop cart information container -->
-           @include('pages.include._smalCart')
+           @include('pages.include._smallCart')
         </div>
     </nav>
     <div class="m_header_container">
