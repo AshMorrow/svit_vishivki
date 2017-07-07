@@ -13,7 +13,7 @@
     width: 100%;
     position: relative;
     div{
-      width: 150px;
+      width: 135px;
       flex-shrink: 0;
     }
     input,select {
@@ -80,8 +80,9 @@
     border: none;
     margin-top: 10px;
     transition: .3s ease;
+    outline: none;
     &:hover{
-      background: #000;
+      background: #0ecff5;
       transition: .3s ease;
     }
     &:active{
@@ -106,6 +107,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  font-family: Roboto;
   .o_product {
     display: flex;
     padding-bottom: 10px;
@@ -139,7 +141,7 @@
       border: 0;
       //background-color: #eae9e9;
       width: 40px;
-      border: 1px solid #fd5397;
+      border: 1px solid @mainColor;
       border-radius: 5px;
       text-align: center;
       height: 40px;

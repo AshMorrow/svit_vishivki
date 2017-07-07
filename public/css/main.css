@@ -120,9 +120,8 @@
   font-size: 1.8rem;
 }
 #small_shop_cart .sh_items .sh_item input {
-  border: 0;
-  background-color: #eae9e9;
   width: 40px;
+  border: 1px solid #fd5397;
   border-radius: 5px;
   text-align: center;
   height: 40px;
@@ -187,26 +186,53 @@
 .m_header_container .m_header_left .m_header_phone {
   font-size: 3rem;
 }
+.m_header_container .m_header_logo img {
+  max-height: 102px;
+}
 /**
     Main menu
  */
 #main_menu {
   display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
-  align-items: center;
-  height: 50px;
+  flex-grow: 0;
 }
-#main_menu a {
-  color: #000;
+#main_menu > div {
   text-transform: uppercase;
   font-weight: 600;
-  margin: 0 16px;
-  display: inline-block;
 }
-#main_menu a:hover {
+#main_menu > div a {
+  color: #000;
+  margin-right: 10px;
+}
+#main_menu > div a:hover {
   color: #fd5397;
   text-decoration: none;
-  border-bottom: 0;
+}
+#main_menu > div:hover > div.menu_child {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-grow: 0;
+  position: absolute;
+  z-index: 5;
+  background: #fff;
+  font-weight: 300;
+}
+#main_menu > div:hover > div.menu_child > div {
+  min-width: 250px;
+  margin-left: 5px;
+  text-transform: none;
+  border-bottom: 1px solid;
+}
+#main_menu > div:hover > div.menu_child > div > a {
+  text-transform: uppercase ;
+}
+#main_menu > div > div {
+  display: none;
 }
 footer {
   height: 60px;

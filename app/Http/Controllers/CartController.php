@@ -8,14 +8,15 @@ use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
 
-    public function show(Request $request){
-        if(isset($_COOKIE['productInCart']) && $_COOKIE['productInCart']){
+    public function show(Request $request)
+    {
+        if (isset($_COOKIE['productInCart']) && $_COOKIE['productInCart']) {
 
             $order_products_json = json_decode($_COOKIE['productInCart'])->items;
 
             $order_products = [];
             $quantity = [];
-            foreach ($order_products_json as $product){
+            foreach ($order_products_json as $product) {
                 $order_products[] = $product->id;
                 $quantity[] = $product->quantity;
             }
@@ -23,16 +24,16 @@ class CartController extends Controller
             $order_products_all_data = DB::table('products AS p')
                 ->leftJoin('product_colors AS pc', 'pc.p_id', '=', 'p.id')
                 ->leftJoin('available_colors AS ac', 'ac.id', '=', 'pc.ac_id')
-                ->select('p.*','pc.*','p.id AS id')
+                ->select('p.*', 'pc.*', 'p.id AS id')
                 ->whereIn('p.id', $order_products)
                 ->where('p.is_active', '=', 1)
                 ->get()->toArray();
 
             $sort_by_add = [];
             $total_price = 0;
-            foreach ($order_products as $key => $id){
-                foreach ($order_products_all_data as $data){
-                    if($id == $data->id){
+            foreach ($order_products as $key => $id) {
+                foreach ($order_products_all_data as $data) {
+                    if ($id == $data->id) {
                         $data->quantity = $quantity[$key];
                         $sort_by_add[] = $data;
                         $total_price += $quantity[$key] * $data->price;
@@ -49,8 +50,53 @@ class CartController extends Controller
 
     }
 
-    public function create_order(){
-        dd($_POST);
+    public function create_order(Request $request)
+    {
+
+        $this->validate($request, [
+            "first_name" => "required|min:2",
+            "last_name" => "required|min:2",
+            "email" => "required|email",
+            "phone" => "required",
+            "delivery_type" => "required|integer",
+        ]);
+
+        switch ($request->input('delivery_type')) {
+            case 2:
+                $this->validate($request, [
+                    'delivery_address' => 'required',
+                ]);
+                break;
+            case 3:
+                $this->validate($request, [
+                    'n_post_city' => 'required',
+                    'n_post_office' => 'required',
+                ]);
+        }
+
+        $lastInsertId = DB::table('orders')->insertGetId([
+            'name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'delivery_type' => $request->input('delivery_type'),
+            'delivery_address' => $request->input('delivery_address')?? '',
+            'n_post_city' => $request->input('n_post_city')?? '',
+            'n_post_office' => $request->input('n_post_office')?? ''
+        ]);
+
+        $order_products_json = json_decode($_COOKIE['productInCart'])->items;
+        $query = [];
+        
+        foreach ($order_products_json as $product) {
+            $query[] = [
+                'order_id' => $lastInsertId,
+                'product_id' => $product->id,
+                'quantity' => $product->quantity,
+            ];
+        }
+
+        DB::table('order_products')->insert($query);
     }
 
 }

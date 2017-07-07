@@ -8,13 +8,13 @@
   -o-user-select: none;
   user-select: none;
 }
-.gradientSeparator{
+
+.gradientSeparator {
   height: 1px;
   display: flex;
   width: 100%;
   .gradientSeparator();
 }
-
 
 /***
     Main part
@@ -141,9 +141,9 @@
       }
 
       input {
-        border: 0;
-        background-color: #eae9e9;
+        //background-color: #eae9e9;
         width: 40px;
+        border: 1px solid @mainColor;
         border-radius: 5px;
         text-align: center;
         height: 40px;
@@ -214,6 +214,9 @@
   .m_header_left .m_header_phone {
     font-size: 3rem;
   }
+  .m_header_logo img {
+    max-height: 102px;
+  }
 
 }
 
@@ -222,22 +225,42 @@
  */
 
 #main_menu {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-  a {
-    color: @fontColor;
+  .displayFlex(@direction: row , @justify: center);
+  & > div {
     text-transform: uppercase;
     font-weight: 600;
-    margin: 0 16px;
-    display: inline-block;
-    &:hover {
-      color: @mainColor;
-      text-decoration: none;
-      border-bottom: 0;
+    a {
+      color: @fontColor;
+      margin-right: 10px;
+      &:hover{
+        color: @mainColor;
+        text-decoration: none;
+      }
+    }
+    &:hover > div.menu_child{
+      .displayFlex(@justify: center,@direction: row);
+      position: absolute;
+      z-index: 5;
+      //width: 100%;
+      background: #fff;
+      font-weight: 300;
+      //left: 0;
+      & > div{
+        & > a{
+          text-transform: uppercase ;
+        }
+        min-width: 250px;
+        //width: 100%;
+        margin-left: 5px;
+        text-transform: none;
+        border-bottom: 1px solid;
+      }
+    }
+    & > div {
+      display: none;
     }
   }
+
 }
 
 footer {

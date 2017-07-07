@@ -1,4 +1,4 @@
-@extends('main')
+    @extends('main')
 @section('content')
     <div class="wrapper container">
         <aside class="col-md-4">
@@ -6,27 +6,27 @@
                 {{csrf_field()}}
                 <label>
                     <div>Имя:</div>
-                    <input type="text" name="order_data[first_name]" required>
+                    <input type="text" name="first_name" required>
                 </label>
                 <label>
                     <div>Фамилия:</div>
-                    <input type="text" name="order_data[last_name]" required>
+                    <input type="text" name="last_name" >
                 </label>
                 <label>
                     <div>Email:</div>
-                    <input type="email" required name="order_data[email]">
+                    <input type="email" required name="email">
                 </label>
                 <label>
                     <div>Телефон:</div>
-                    <input type="text" name="order_data[phone]" id="order_phone" required>
+                    <input type="text" name="phone" id="order_phone" required>
                 </label>
                 <label>
                     <div>Коментарий:</div>
-                    <textarea name="order_data[comment]"></textarea>
+                    <textarea name="comment"></textarea>
                 </label>
                 <label>
                     <div>Способ доставки</div>
-                    <select name="order_data[delivery_type]" id="o_delivery_type" onchange="Order.changeDeliveryType()">
+                    <select name="delivery_type" id="o_delivery_type" onchange="Order.changeDeliveryType()">
                         <option value="1">Самовывоз</option>
                         <option value="2">Доставка по Киеву</option>
                         <option value="3">Новая почта</option>
@@ -34,19 +34,19 @@
                 </label>
                 <label id="o_delivery_address_container" style="display: none">
                     <div>Адрес доставки:</div>
-                    <input type="text" name="order_data[address]">
+                    <input type="text" name="delivery_address">
                 </label>
                 <div id="o_new_post_container" style="display: none">
                     <label>
                         <div>Город:</div>
-                        <input type="text" name="order_data[delivery_address]" id="city_name"
+                        <input type="text" name="n_post_city" id="city_name"
                                {{--onkeyup="NewPost.callCities()"--}}
                                onfocus="(this).select();">
                         <div id="city_response" class="response" style="display: none"></div>
                     </label>
                     <label>
                         <div>Отделение<br> Новой почты:</div>
-                        <select id="n_post_office" name="order_data[n_post_office]"></select>
+                        <select id="n_post_office" name="n_post_office"></select>
                     </label>
                 </div>
                 <button type="submit">Оформить зказ</button>
@@ -87,7 +87,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 @endforeach
                 <div class="o_price_total">
@@ -112,4 +111,13 @@
             }
         });
     </script>
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endsection
