@@ -1,5 +1,5 @@
-.displayFlex(@direction: column, @align: flex-start, @justify: flex-start, @grow: 0) {
-  display: flex;
+.displayFlex(@direction: column, @align: flex-start, @justify: flex-start, @grow: 0,@display: flex) {
+  display: @display;
   flex-direction: @direction;
   align-items: @align;
   justify-content: @justify;
@@ -9,4 +9,36 @@
 .gradientSeparator() {
   @list: transparent 15%, @borderLineColor 70%, transparent 15%;
   background-image: svg-gradient(to right, @list);
+}
+
+.hoverAnimation(){
+  transition: all 0.3s;
+}
+
+.addToCartBtn(){
+  outline: none;
+  border: none;
+  background-color: @mainColor;
+  width: 188px;
+  padding: 13px 0;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  align-items: center;
+  .hoverAnimation();
+  i {
+    font-size: 3rem;
+    margin-right: 5px;
+  }
+  &:hover {
+    .hoverAnimation();
+    background-color: @fontColor;
+    cursor: pointer;
+  }
+  &:active {
+    margin-top: 2px;
+  }
 }

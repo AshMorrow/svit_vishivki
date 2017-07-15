@@ -15,6 +15,7 @@ Route::get('/', 'ShopController@main');
 Route::get('cart', 'CartController@show');
 Route::post('cart', 'CartController@create_order');
 
+Route::get('/category/{path}','CatalogController@show')->where('path','.*?');
 
 Auth::routes();
 

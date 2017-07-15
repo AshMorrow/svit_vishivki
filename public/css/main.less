@@ -1,6 +1,17 @@
 @import "variables.less";
 @import "lib.less";
 
+@keyframes menu_show {
+  from {
+    top: 60px;
+    opacity: 0;
+  }
+  to {
+    top: 50px;
+    opacity: 1;
+  }
+}
+
 .noselect {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -55,7 +66,9 @@
     font-size: 1.4rem;
     margin: 0 30px 0 0;
     display: inline-block;
+    .hoverAnimation();
     &:hover {
+      .hoverAnimation();
       text-decoration: none;
       color: @fontColor;
     }
@@ -166,6 +179,7 @@
         &:hover span {
           color: @mainColor;
           cursor: pointer;
+          .hoverAnimation();
         }
         span {
           font-size: 2rem;
@@ -188,7 +202,7 @@
   box-shadow: 0 0 5px -6px @shadowColor inset;
   top: 0;
   &:active {
-    transition: all 0.3s;
+    .hoverAnimation();
     margin-top: 1px;
     box-shadow: 0 0 8px 0px @shadowColor inset
   }
@@ -228,32 +242,75 @@
   .displayFlex(@direction: row , @justify: center);
   & > div {
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
     a {
       color: @fontColor;
-      margin-right: 10px;
-      &:hover{
+      .displayFlex(@justify: center,@align: center);
+      margin: 0 10px;
+      letter-spacing: 0.4px;
+      font-size: 16px;
+      font-family: 'Ubuntu', sans-serif;
+      height: 30px;
+      .hoverAnimation();
+      &:hover {
+        .hoverAnimation();
         color: @mainColor;
         text-decoration: none;
       }
     }
-    &:hover > div.menu_child{
+    .menu_child_1:before {
+      content: '';
+      position: absolute;
+      border: 10px solid transparent;
+      border-bottom: 10px solid @mainColor;
+      top: -20px;
+    }
+    &:hover > div.menu_child_1 {
+      //.hoverAnimation();
+
       .displayFlex(@justify: center,@direction: row);
       position: absolute;
       z-index: 5;
-      //width: 100%;
       background: #fff;
-      font-weight: 300;
-      //left: 0;
-      & > div{
-        & > a{
-          text-transform: uppercase ;
-        }
+      padding: 10px 0;
+      top: 50px;
+      animation-name: menu_show;
+      animation-duration: 0.5s;
+      & > div {
+        border-right: 1px solid #eae9e9;
         min-width: 250px;
-        //width: 100%;
-        margin-left: 5px;
+        &:last-child {
+          border-right: none;
+        }
+        & > a {
+          font-size: 15px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: .02em;
+          display: inline-block;
+        }
+      }
+    }
+    .menu_child_2 {
+      margin-top: 5px;
+      a {
+        font-weight: 400;
+        font-size: 14px;
         text-transform: none;
-        border-bottom: 1px solid;
+        padding-left: 15px;
+        .displayFlex(@direction: row,@align: center);
+        width: 100%;
+        margin: 0;
+        &::before{
+          content: '';
+          font-family: "Linearicons";
+          top: 1px;
+          position: relative;
+          font-size: 12px;
+          margin-right: 2px;
+        }
       }
     }
     & > div {
@@ -298,30 +355,7 @@ footer {
     }
   }
   .btn-add {
-    outline: none;
-    border: none;
-    background-color: @mainColor;
-    width: 188px;
-    padding: 13px 0;
-    margin: 0 auto;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: #fff;
-    align-items: center;
-    transition: all 0.3s;
-    i {
-      font-size: 3rem;
-      margin-right: 5px;
-    }
-    &:hover {
-      transition: all 0.3s;
-      background-color: @fontColor;
-    }
-    &:active {
-      margin-top: 2px;
-    }
+    .addToCartBtn();
   }
   .price {
     text-align: center;

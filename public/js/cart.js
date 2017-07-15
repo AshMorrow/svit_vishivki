@@ -25,7 +25,7 @@ var Cart = {
         mainContainer.setAttribute('data-product-id', productId);
         mainContainer.innerHTML = `
             <div class="sh_image_container">
-                <img src="storage/productImages/thumbs/${productId}/1.jpg">
+                <img src="/storage/productImages/thumbs/${productId}/1.jpg">
             </div>
             <div class="sh_item_information">
                 <div class="item_name">${productName}</div>

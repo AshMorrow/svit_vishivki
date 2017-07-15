@@ -1,0 +1,72 @@
+.catalog_container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-grow: 0;
+}
+/**
+  Product styles
+ */
+.catalog_products {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-grow: 0;
+  flex-wrap: wrap;
+}
+.catalog_products .catalog_product {
+  margin: 0 5px;
+  width: 300px;
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+.catalog_products .catalog_product .cp_price {
+  text-align: center;
+  margin-top: 5px;
+}
+.catalog_products .catalog_product .cp_price .cp_price_new {
+  font-size: 2rem;
+  color: #fd5397;
+}
+.catalog_products .catalog_product .cp_name {
+  font-family: "Ubuntu", 'sans-serif';
+  font-weight: 300;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.catalog_products .catalog_product .cp_addToCart {
+  outline: none;
+  border: none;
+  background-color: #fd5397;
+  width: 188px;
+  padding: 13px 0;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  align-items: center;
+  transition: all 0.3s;
+}
+.catalog_products .catalog_product .cp_addToCart i {
+  font-size: 3rem;
+  margin-right: 5px;
+}
+.catalog_products .catalog_product .cp_addToCart:hover {
+  transition: all 0.3s;
+  background-color: #000;
+  cursor: pointer;
+}
+.catalog_products .catalog_product .cp_addToCart:active {
+  margin-top: 2px;
+}
+/**
+  Catalog filter styles
+ */
+.catalog_filter {
+  width: 250px;
+}

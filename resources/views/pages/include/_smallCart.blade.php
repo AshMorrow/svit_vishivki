@@ -12,7 +12,7 @@
             @foreach($products as $product)
                 <div class="sh_item cart_item" data-id="{{$product->id}}">
                     <div class="sh_image_container">
-                        <img src="storage/productImages/thumbs/{{$product->id}}/1.jpg">
+                        <img src="/storage/productImages/thumbs/{{$product->id}}/1.jpg">
                     </div>
                     <div class="sh_item_information">
                         <div class="item_name">{{$product->name}}</div>

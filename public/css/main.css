@@ -1,3 +1,13 @@
+@keyframes menu_show {
+  from {
+    top: 60px;
+    opacity: 0;
+  }
+  to {
+    top: 50px;
+    opacity: 1;
+  }
+}
 .noselect {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -45,8 +55,10 @@
   font-size: 1.4rem;
   margin: 0 30px 0 0;
   display: inline-block;
+  transition: all 0.3s;
 }
 .main_top_nav .info_nav a:hover {
+  transition: all 0.3s;
   text-decoration: none;
   color: #000;
 }
@@ -143,6 +155,7 @@
 #small_shop_cart .sh_items .sh_item .sh_remove_item:hover span {
   color: #fd5397;
   cursor: pointer;
+  transition: all 0.3s;
 }
 #small_shop_cart .sh_items .sh_item .sh_remove_item span {
   font-size: 2rem;
@@ -201,17 +214,37 @@
 }
 #main_menu > div {
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
+  padding: 10px 0;
+  position: relative;
 }
 #main_menu > div a {
   color: #000;
-  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  margin: 0 10px;
+  letter-spacing: 0.4px;
+  font-size: 16px;
+  font-family: 'Ubuntu', sans-serif;
+  height: 30px;
+  transition: all 0.3s;
 }
 #main_menu > div a:hover {
+  transition: all 0.3s;
   color: #fd5397;
   text-decoration: none;
 }
-#main_menu > div:hover > div.menu_child {
+#main_menu > div .menu_child_1:before {
+  content: '';
+  position: absolute;
+  border: 10px solid transparent;
+  border-bottom: 10px solid #fd5397;
+  top: -20px;
+}
+#main_menu > div:hover > div.menu_child_1 {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -220,16 +253,48 @@
   position: absolute;
   z-index: 5;
   background: #fff;
-  font-weight: 300;
+  padding: 10px 0;
+  top: 50px;
+  animation-name: menu_show;
+  animation-duration: 0.5s;
 }
-#main_menu > div:hover > div.menu_child > div {
+#main_menu > div:hover > div.menu_child_1 > div {
+  border-right: 1px solid #eae9e9;
   min-width: 250px;
-  margin-left: 5px;
-  text-transform: none;
-  border-bottom: 1px solid;
 }
-#main_menu > div:hover > div.menu_child > div > a {
-  text-transform: uppercase ;
+#main_menu > div:hover > div.menu_child_1 > div:last-child {
+  border-right: none;
+}
+#main_menu > div:hover > div.menu_child_1 > div > a {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  display: inline-block;
+}
+#main_menu > div .menu_child_2 {
+  margin-top: 5px;
+}
+#main_menu > div .menu_child_2 a {
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: none;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-grow: 0;
+  width: 100%;
+  margin: 0;
+}
+#main_menu > div .menu_child_2 a::before {
+  content: '';
+  font-family: "Linearicons";
+  top: 1px;
+  position: relative;
+  font-size: 12px;
+  margin-right: 2px;
 }
 #main_menu > div > div {
   display: none;
@@ -286,6 +351,7 @@ footer .corporate_info {
 #carousel_new_products .btn-add:hover {
   transition: all 0.3s;
   background-color: #000;
+  cursor: pointer;
 }
 #carousel_new_products .btn-add:active {
   margin-top: 2px;
