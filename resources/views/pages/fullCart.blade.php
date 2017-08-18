@@ -83,7 +83,7 @@
                                     <span> грн.</span>
                                 </div>
                                 <div class="o_product_remove" onclick="Cart.delete({{$product->id}})">
-                                    <span class="lnr lnr-trash"></span>
+                                    <span class="lnr lnr-trash"></span>
                                 </div>
                             </div>
                         </div>

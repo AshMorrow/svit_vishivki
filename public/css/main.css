@@ -211,6 +211,7 @@
   align-items: flex-start;
   justify-content: center;
   flex-grow: 0;
+  flex-wrap: nowrap;
 }
 #main_menu > div {
   text-transform: uppercase;
@@ -225,6 +226,7 @@
   align-items: center;
   justify-content: center;
   flex-grow: 0;
+  flex-wrap: nowrap;
   margin: 0 10px;
   letter-spacing: 0.4px;
   font-size: 16px;
@@ -250,6 +252,7 @@
   align-items: flex-start;
   justify-content: center;
   flex-grow: 0;
+  flex-wrap: nowrap;
   position: absolute;
   z-index: 5;
   background: #fff;
@@ -285,6 +288,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-grow: 0;
+  flex-wrap: nowrap;
   width: 100%;
   margin: 0;
 }
@@ -342,6 +346,7 @@ footer .corporate_info {
   font-size: 1.5rem;
   color: #fff;
   align-items: center;
+  position: relative;
   transition: all 0.3s;
 }
 #carousel_new_products .btn-add i {
@@ -350,11 +355,11 @@ footer .corporate_info {
 }
 #carousel_new_products .btn-add:hover {
   transition: all 0.3s;
-  background-color: #000;
+  background-color: #0ecff5;
   cursor: pointer;
 }
 #carousel_new_products .btn-add:active {
-  margin-top: 2px;
+  top: 0.5px;
 }
 #carousel_new_products .price {
   text-align: center;

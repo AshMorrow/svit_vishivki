@@ -1,6 +1,7 @@
 @import "lib";
 @import "variables";
-.catalog_container{
+
+.catalog_container {
   .displayFlex(@direction: row);
 }
 
@@ -11,11 +12,22 @@
 .catalog_products {
   .displayFlex(@direction: row,@justify: space-around);
   flex-wrap: wrap;
-  .catalog_product{
-    margin:0 5px;
+  .catalog_product {
+    margin: 0 5px;
     width: 300px;
     margin-bottom: 30px;
     flex-shrink: 0;
+    a{
+      text-decoration: none;
+      color: @fontColor;
+    }
+    padding: 5px;
+    .hoverAnimation();
+    &:hover {
+      box-shadow: 0px 0px 10px -3px;
+      .hoverAnimation();
+      cursor: pointer;
+    }
     .cp_price {
       text-align: center;
       margin-top: 5px;
@@ -24,14 +36,21 @@
         color: @mainColor;
       }
     }
-    .cp_name{
+    .cp_image {
+      img {
+        max-width: 300px;
+        width: 100%;
+      }
+    }
+
+    .cp_name {
       font-family: "Ubuntu", 'sans-serif';
       font-weight: 300;
       font-size: 1.8rem;
       text-align: center;
       margin-bottom: 10px;
     }
-    .cp_addToCart{
+    .cp_addToCart {
       .addToCartBtn();
     }
   }
@@ -42,6 +61,60 @@
   Catalog filter styles
  */
 
-.catalog_filter{
+#product_filter {
   width: 250px;
+  flex-shrink: 0;
+  .pg_g_label {
+    font-size: 15px;
+    font-family: 'Ubuntu', sans-serif;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .pf_price_container{
+    .displayFlex(@direction: row,@justify: space-between);
+    margin-bottom: 10px;
+    input{
+      max-width: 100px;
+      border: 0;
+      color: @mainColor;
+      font-size: 1.7rem;
+      font-weight: 600;
+    }
+    input:last-child{
+      text-align: right;
+    }
+  }
+  /*
+    slider styles
+   */
+  #slider-range {
+    background: #dadada;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    .ui-widget-header {
+      background: @mainColor;
+      color: #333333;
+      font-weight: bold;
+      padding: 0;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .ui-state-active {
+      border: 2px solid #fff !important;
+    }
+    .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+      border: 1px solid @mainColor;
+      background: #fff;
+      font-weight: normal;
+      outline: none;
+      color: #454545;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+  }
+
 }

@@ -1,9 +1,10 @@
-.displayFlex(@direction: column, @align: flex-start, @justify: flex-start, @grow: 0,@display: flex) {
+.displayFlex(@direction: column, @align: flex-start, @justify: flex-start, @grow: 0,@display: flex, @wrap: nowrap) {
   display: @display;
   flex-direction: @direction;
   align-items: @align;
   justify-content: @justify;
   flex-grow: @grow;
+  flex-wrap: @wrap;
 }
 
 .gradientSeparator() {
@@ -15,19 +16,20 @@
   transition: all 0.3s;
 }
 
-.addToCartBtn(){
+.addToCartBtn(@justify: center,@align: center,@margin: 0 auto){
   outline: none;
   border: none;
   background-color: @mainColor;
   width: 188px;
   padding: 13px 0;
-  margin: 0 auto;
+  margin: @margin;
   display: flex;
   text-align: center;
-  justify-content: center;
+  justify-content: @justify;
   font-size: 1.5rem;
   color: #fff;
-  align-items: center;
+  align-items: @align;
+  position: relative;
   .hoverAnimation();
   i {
     font-size: 3rem;
@@ -35,10 +37,11 @@
   }
   &:hover {
     .hoverAnimation();
-    background-color: @fontColor;
+    background-color: @hoverButtonsColor;
+    //box-shadow: 0px -2px 8px -3px #000;
     cursor: pointer;
   }
   &:active {
-    margin-top: 2px;
+    top:0.5px;
   }
 }
