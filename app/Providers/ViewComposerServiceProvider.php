@@ -15,6 +15,7 @@ class ViewComposerServiceProvider extends ServiceProvider
     {
         $this->composerNavigation();
         $this->composerRestoreSmallCart();
+        $this->composerProductFilter();
     }
 
     /**
@@ -33,5 +34,9 @@ class ViewComposerServiceProvider extends ServiceProvider
 
     public function composerRestoreSmallCart(){
         view()->composer('pages.include._smallCart','App\Http\Composer\SmallCartComposer');
+    }
+
+    public function composerProductFilter(){
+        view()->composer('pages.include._productFilter', 'App\Http\Composer\ProductFilterComposer');
     }
 }

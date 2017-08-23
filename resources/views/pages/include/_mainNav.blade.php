@@ -4,6 +4,7 @@
         'cats' => $cats,
         'parent_id' => 0,
          'i' => 0,
-         'url' => '/category'
+         'url' => '/category',
+         'lan' => 'name_'.App::getLocale()
     ])
 </nav>

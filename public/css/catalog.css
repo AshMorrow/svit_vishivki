@@ -4,6 +4,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-grow: 0;
+  flex-wrap: nowrap;
 }
 /**
   Product styles
@@ -14,6 +15,7 @@
   align-items: flex-start;
   justify-content: space-around;
   flex-grow: 0;
+  flex-wrap: nowrap;
   flex-wrap: wrap;
 }
 .catalog_products .catalog_product {
@@ -21,6 +23,17 @@
   width: 300px;
   margin-bottom: 30px;
   flex-shrink: 0;
+  padding: 5px;
+  transition: all 0.3s;
+}
+.catalog_products .catalog_product a {
+  text-decoration: none;
+  color: #000;
+}
+.catalog_products .catalog_product:hover {
+  box-shadow: 0px 0px 10px -3px;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 .catalog_products .catalog_product .cp_price {
   text-align: center;
@@ -29,6 +42,10 @@
 .catalog_products .catalog_product .cp_price .cp_price_new {
   font-size: 2rem;
   color: #fd5397;
+}
+.catalog_products .catalog_product .cp_image img {
+  max-width: 300px;
+  width: 100%;
 }
 .catalog_products .catalog_product .cp_name {
   font-family: "Ubuntu", 'sans-serif';
@@ -50,6 +67,7 @@
   font-size: 1.5rem;
   color: #fff;
   align-items: center;
+  position: relative;
   transition: all 0.3s;
 }
 .catalog_products .catalog_product .cp_addToCart i {
@@ -58,15 +76,78 @@
 }
 .catalog_products .catalog_product .cp_addToCart:hover {
   transition: all 0.3s;
-  background-color: #000;
+  background-color: #0ecff5;
   cursor: pointer;
 }
 .catalog_products .catalog_product .cp_addToCart:active {
-  margin-top: 2px;
+  top: 0.5px;
 }
 /**
   Catalog filter styles
  */
-.catalog_filter {
+#product_filter {
   width: 250px;
+  flex-shrink: 0;
+  /*
+    slider styles
+   */
+}
+#product_filter .pg_g_label {
+  font-size: 15px;
+  font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+#product_filter .pf_price_container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+#product_filter .pf_price_container input {
+  max-width: 100px;
+  border: 0;
+  color: #fd5397;
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+#product_filter .pf_price_container input:last-child {
+  text-align: right;
+}
+#product_filter #slider-range {
+  background: #dadada;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+#product_filter #slider-range .ui-widget-header {
+  background: #fd5397;
+  color: #333333;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+#product_filter #slider-range .ui-widget-header:hover {
+  cursor: pointer;
+}
+#product_filter #slider-range .ui-state-active {
+  border: 2px solid #fff !important;
+}
+#product_filter #slider-range .ui-state-default,
+#product_filter #slider-range .ui-widget-content .ui-state-default,
+#product_filter #slider-range .ui-widget-header .ui-state-default,
+#product_filter #slider-range .ui-button,
+#product_filter #slider-range html .ui-button.ui-state-disabled:hover,
+#product_filter #slider-range html .ui-button.ui-state-disabled:active {
+  border: 1px solid #fd5397;
+  background: #fff;
+  font-weight: normal;
+  outline: none;
+  color: #454545;
+  border-radius: 12px;
+  cursor: pointer;
 }

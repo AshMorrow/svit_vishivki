@@ -9,6 +9,11 @@ use Illuminate\View\View;
 class NavigationComposer
 {
 
+    /**
+     * Creating main menu navigation array
+     * @param $mess
+     * @return array|bool
+     */
     public function form_tree($mess)
     {
         if (!is_array($mess)) {

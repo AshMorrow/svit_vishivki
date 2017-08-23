@@ -5,13 +5,14 @@
             @foreach ($cats[$parent_id] as $cat)
                 <div  @if($i == 0) onmouseover="showMenu(this)" @endif @if($i == 1) class="col-sm-3" @endif>
                     <a href="{{$url.'/'.$cat->url}}">
-                        {{$cat->name_ru}}
+                        {{$cat->$lan }}
                     </a>
                     @include('pages.include._mainNavCild',[
                         'cats' => $cats,
                         'parent_id' => $cat->id,
                         'i' => ++$i,
-                        'url' => $url.'/'.$cat->url
+                        'url' => $url.'/'.$cat->url,
+                        'lan' => 'name_'.App::getLocale()
                     ])
                 </div>
                 @php

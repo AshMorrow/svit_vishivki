@@ -23,11 +23,13 @@ class Products extends Migration
            $table->float('price');
            $table->boolean('is_popular')->default(0);
            $table->boolean('is_active')->default(0);
+           $table->boolean('is_new')->default(0);
            $table->integer('category_id');
            $table->boolean('for_man')->default(0);
            $table->boolean('for_woman')->default(0);
            $table->boolean('for_children')->default(0);
            $table->string('main_image');
+           $table->string('url')->unique();
         });
     }
 

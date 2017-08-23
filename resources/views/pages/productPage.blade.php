@@ -1,10 +1,26 @@
 @extends('main')
-@section('title','Товар 1');
+@section('title','Товар 1')
 @section('content')
     <section class="container product_container">
+
         <div id="product_photo_container">
-            <img id="product_big_image" src="/storage/productImages/full/1/1.jpg">
+            <div id="product_photo_thumbs">
+                <a data-slide-index="0" href=""><img id="product_big_image" src="/storage/productImages/full/1/1.jpg"></a>
+                <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
+                <a data-slide-index="0" href=""><img id="product_big_image" src="/storage/productImages/full/1/1.jpg"></a>
+                <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
+                <a data-slide-index="0" href=""><img id="product_big_image" src="/storage/productImages/full/1/1.jpg"></a>
+                <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
+            </div>
+
+            <ul id="product_photo_full">
+                <li><img src="/storage/productImages/full/1/1.jpg"></li>
+                <li><img src="/storage/productImages/full/1/2.jpg"></li>
+            </ul>
+
+
         </div>
+
         <div id="product_details_container">
             <h1>ASOS BRIDAL Here Comes The Bride Vest & Short Pyjama Set</h1>
             <div class="pd_price_article">
@@ -68,6 +84,7 @@
             </div>
             <div class="pd_tab_data">
                 <input id="pd_tad_info" type="radio" hidden checked name="pd_tab_data">
+
                 <div>
                     <p>
                         Before you start off to the website, answer one question: what is it that you pursue when
@@ -76,21 +93,8 @@
                         perfect lingerie underneath. Just as an old joke says, “She was wearing all white, but no one
                         could see that, as there was a black dress on her”.
                     </p>
-                    <p>
-                        Lingerie is more than just a garment. For some reason, it is often considered to be a topic
-                        which is not appropriate to be talked about. However, it deserves just as much attention as
-                        usual clothing. It may be fashionable or not, it may be comfortable or not, it may suit you or
-                        not. This is why it should be talked about, paid attention to and enjoyed.
-                    </p>
-                    <p>
-                        What is offered in this online store? Most comfortable sleepwear, extremely elegant swimwear,
-                        seductive lingerie, regular and plus size shapewear and so on. An extensive range of lingerie
-                        includes naughty and nice models. Be sure that whichever evening you are planning, in the
-                        lingerie which fits your body perfectly, which is comfortable and at the same time makes you
-                        look gorgeous, it will be amazing. Either it’s a special moment with your loved one, or a
-                        gathering with your friends at a tennis court, the lingerie which you’ll be wearing will make
-                        you as comfortable as possible.
-                    </p></div>
+                </div>
+
                 <input id="pd_tad_delivery" type="radio" hidden name="pd_tab_data">
                 <div>Доставка</div>
                 <input id="pd_tad_comments" type="radio" hidden name="pd_tab_data">
@@ -98,6 +102,11 @@
             </div>
         </div>
     </section>
+    <script>
+        var b = new Gallery('#product_photo_full');
+        var f = new Gallery('#product_photo_full');
+
+    </script>
     <!-- Disqus load script -->
     <script>
 
@@ -116,6 +125,7 @@
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();
+
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 @endsection

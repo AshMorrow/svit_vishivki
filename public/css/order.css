@@ -7,6 +7,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-grow: 1;
+  flex-wrap: nowrap;
 }
 #order_form label {
   display: flex;
@@ -14,6 +15,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-grow: 1;
+  flex-wrap: nowrap;
   margin-right: 10px;
   width: 100%;
   position: relative;
@@ -63,6 +65,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   flex-grow: 0;
+  flex-wrap: nowrap;
   width: 100%;
   padding: 5px;
 }
@@ -126,6 +129,7 @@
   align-items: flex-start;
   justify-content: space-between;
   flex-grow: 1;
+  flex-wrap: nowrap;
   width: 100%;
 }
 #order_products_list .o_product .o_product_details .o_product_name {
@@ -141,6 +145,7 @@
   align-items: center;
   justify-content: flex-start;
   flex-grow: 1;
+  flex-wrap: nowrap;
   width: 100%;
 }
 #order_products_list .o_product .o_product_details .o_product_characteristics .o_char_group,
@@ -167,7 +172,9 @@
   align-items: flex-start;
   justify-content: center;
   flex-grow: 0;
+  flex-wrap: nowrap;
   font-size: 2.5rem;
+  font-family: "Linearicons";
   transition: .3s ease;
   top: -2px;
   position: relative;

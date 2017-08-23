@@ -45,7 +45,6 @@
   justify-content: center;
   height: 61px;
   align-items: center;
-  /* margin-bottom: 10px; */
   border-bottom: 1px solid #eae9e9;
 
   div {
@@ -54,6 +53,28 @@
 
   .language_change {
     width: 100px;
+    div.active{
+      border-color: @mainColor;
+    }
+    div{
+      width: 43px;
+      height: 42px;
+      display: flex;
+      border: 1px solid @borderLineColor;
+      &:first-child{
+        margin-right: 10px;
+      }
+      a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        color: @mainColor;
+        text-decoration: none;
+      }
+
+    }
   }
 
   .info_nav {

@@ -4,8 +4,32 @@
   .displayFlex(@direction: row);
   #product_photo_container{
     margin-right: 10px;
-    #product_big_image{
-      max-width: 500px;
+    max-width: 500px;
+    .displayFlex(@direction: row);
+    #product_photo_full{
+      li{
+        max-height: 600px;
+        overflow: hidden;
+      }
+
+      img{
+        max-width: 500px;
+      }
+    }
+
+    #product_photo_thumbs{
+      max-height: 100%;
+      overflow-x: hidden;
+      max-width: 176px;
+      overflow-y: scroll;
+      /* width: 40px; */
+      /* display: flex; */
+      margin-right: 10px;
+      flex-shrink: 0;
+      img{
+        max-width: 150px;
+        margin-right: 10px;
+      }
     }
   }
 

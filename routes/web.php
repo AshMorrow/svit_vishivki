@@ -11,11 +11,20 @@
 |
 */
 
-Route::get('/', 'ShopController@main');
-Route::get('cart', 'CartController@show');
-Route::post('cart', 'CartController@create_order');
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+    ],
+    function () {
+        /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
+        Route::get('/', 'ShopController@main');
+        Route::get('cart', 'CartController@show');
+        Route::post('cart', 'CartController@create_order');
 
-Route::get('/category/{path}','CatalogController@show')->where('path','.*?');
+        Route::get('/category/{path}', 'CatalogController@show')->where('path', '.*?');
+        Route::get('/product/{path}', 'ProductController@show');
+    });
 
 Auth::routes();
 

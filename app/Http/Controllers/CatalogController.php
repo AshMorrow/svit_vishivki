@@ -41,6 +41,12 @@ class CatalogController extends Controller
         return $categories_ids;
     }
 
+    /**
+     *  Prepare filer data to query
+     *
+     * @param $request
+     * @return array
+     */
     private function productFilter($request)
     {
 
@@ -59,7 +65,7 @@ class CatalogController extends Controller
 
         /*
          *  Color filter
-         *  get
+         *
          */
 
         return $filter;
@@ -67,9 +73,14 @@ class CatalogController extends Controller
 
     public function show($path, Request $request)
     {
-        dd(DB::table('products AS p')->join('pro'
-        )->select('*')->get());
-        if (isset($_GET) && $_GET) {
+
+//        dd(DB::select('
+//         Select *, GROUP_CONCAT(DISTINCT pc.p_id ORDER BY pc.p_id ASC SEPARATOR \', \') AS books From products AS p
+//          LEFT JOIN product_characteristics AS pc ON pc.p_id = p.id
+//          LEFT JOIN characteristic_value AS cv ON cv.c_id = pc.c_id
+//          GROUP BY p.id
+//        '));
+       if (isset($_GET) && $_GET) {
 
             $filer = $this->productFilter($request);
 
