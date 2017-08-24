@@ -23,6 +23,8 @@
     <script src="/js/newPost.js"></script>
     <script src="/jquery-ui/jquery-ui.js"></script>
 
+    <!-- product gallery -->
+    <link rel="stylesheet" href="/gallery/css/gallery.css">
     <script src="/gallery/js/gallery.js"></script>
 
     <!-- bx_slider -->

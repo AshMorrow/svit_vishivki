@@ -1,24 +1,30 @@
 let Gallery = function (imageContainer,thumbContainer) {
-    console.log('d');
-    this.imageContainer = imageContainer;
+
+    if(imageContainer === 'undefined' || typeof imageContainer !== 'string'){
+        console.log('imageContainer error');
+        return;
+    }
+
+    this.imageContainer = document.getElementById(imageContainer);
+
     this.thumbContainer = thumbContainer;
     this.evenListners = [];
 
     this.showPopup = function () {
 
-        $('body').append('<div class="b_gallery"></div>')
+        var imageContainer = document.getElementById(imageContainer);
+        var fullImage = imageContainer.querySelector('img');
+
+        var galleryContainer = document.createElement('div');
+        galleryContainer.id = 'galleryContainerOpened';
+
+        galleryContainer.appendChild(fullImage);
+
+        document.body.appendChild(galleryContainer);
 
     };
 
-    if(this.imageContainer === 'undefined' || typeof this.imageContainer !== 'string'){
-        console.log('imageContainer error');
-        return;
-    }
-    console.log(this.imageContainer);
-    console.log(typeof this.imageContainer);
-    console.log(imageContainer);
-
-
+    this.imageContainer.onclick = this.showPopup;
 
     if(thumbContainer !== 'undefined' || typeof thumbContainer !== 'string'){
 

@@ -13,10 +13,9 @@
                 <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
             </div>
 
-            <ul id="product_photo_full">
-                <li><img src="/storage/productImages/full/1/1.jpg"></li>
-                <li><img src="/storage/productImages/full/1/2.jpg"></li>
-            </ul>
+            <div id="product_photo_full">
+                <img src="/storage/productImages/full/1/1.jpg">
+            </div>
 
 
         </div>
@@ -103,8 +102,7 @@
         </div>
     </section>
     <script>
-        var b = new Gallery('#product_photo_full');
-        var f = new Gallery('#product_photo_full');
+        var b = new Gallery('product_photo_full');
 
     </script>
     <!-- Disqus load script -->
