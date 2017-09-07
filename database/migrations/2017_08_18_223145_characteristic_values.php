@@ -14,6 +14,7 @@ class CharacteristicValues extends Migration
     public function up()
     {
         Schema::create('characteristic_value', function (Blueprint $table){
+           $table->primary('id');
            $table->unsignedInteger('c_id');
            $table->string('value');
 

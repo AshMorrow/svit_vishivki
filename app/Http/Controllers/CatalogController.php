@@ -90,6 +90,7 @@ class CatalogController extends Controller
 
         if(isset($filer)){
             $filer[] = ['p.category_id', '=', end($categories_ids)];
+            $filer[] = ['p.is_active', '=', '1'];
 
             $products = DB::table('products AS p')
                 ->select('*')
@@ -101,7 +102,10 @@ class CatalogController extends Controller
         }else{
             $products = DB::table('products AS p')
                 ->select('*')
-                ->where('p.category_id', '=', end($categories_ids))
+                ->where([
+                    ['p.category_id', '=', end($categories_ids)],
+                    ['p.is_active', '=', '1']
+                ])
                 ->get()->toArray();
 
         }

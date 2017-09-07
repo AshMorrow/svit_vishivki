@@ -23,6 +23,10 @@
     <script src="/js/newPost.js"></script>
     <script src="/jquery-ui/jquery-ui.js"></script>
 
+    <!-- custom scroll bar -->
+    <link rel="stylesheet" href="/custom_scrollbar/jquery.mCustomScrollbar.css">
+    <script src="/custom_scrollbar/jquery.mCustomScrollbar.js"></script>
+
     <!-- product gallery -->
     <link rel="stylesheet" href="/gallery/css/gallery.css">
     <script src="/gallery/js/gallery.js"></script>
@@ -46,6 +50,7 @@
           rel="stylesheet">
 </head>
 <body>
+<div class="cont_1">
 <header class="container">
     <nav class="main_top_nav nav nav-pills nav-justified">
         <div class="language_change">
@@ -94,4 +99,5 @@
 
 </footer>
 </body>
+</div>
 </html>

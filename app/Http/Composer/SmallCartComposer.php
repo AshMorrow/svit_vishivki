@@ -8,7 +8,6 @@
 
 namespace App\Http\Composer;
 
-
 use Illuminate\View\View;
 
 class SmallCartComposer

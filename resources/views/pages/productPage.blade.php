@@ -2,96 +2,92 @@
 @section('title','Товар 1')
 @section('content')
     <section class="container product_container">
-
         <div id="product_photo_container">
             <div id="product_photo_thumbs">
-                <a data-slide-index="0" href=""><img id="product_big_image" src="/storage/productImages/full/1/1.jpg"></a>
-                <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
-                <a data-slide-index="0" href=""><img id="product_big_image" src="/storage/productImages/full/1/1.jpg"></a>
-                <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
-                <a data-slide-index="0" href=""><img id="product_big_image" src="/storage/productImages/full/1/1.jpg"></a>
-                <a data-slide-index="1" href=""><img id="product_big_image" src="/storage/productImages/full/1/2.jpg"></a>
+                @foreach($galleryThumbImages as $index => $path)
+                    <div class="gallery_thumbs pp_thumb_image_container {{ $index == 0? 'active': '' }}"
+                         data-slide-index="{{ $index }}">
+                        <img id="product_big_image" src="/storage/{{ $path }}">
+                    </div>
+                @endforeach
             </div>
 
             <div id="product_photo_full">
-                <img src="/storage/productImages/full/1/1.jpg">
+                @foreach($galleryFullImages as $index => $path)
+                    <img data-index="{{ $index }}" class="{{$index == 0? 'active': ''}}" src="{{ '/storage/'.$path }}">
+                @endforeach
             </div>
-
-
         </div>
 
         <div id="product_details_container">
-            <h1>ASOS BRIDAL Here Comes The Bride Vest & Short Pyjama Set</h1>
+            <h1 id="productLabel">{{ $product['name_'.$lan] }}</h1>
             <div class="pd_price_article">
-                <div class="pd_price">150.00 грн</div>
+                <div class="pd_price">{{ $product['price'] }} грн</div>
                 <div class="pd_article">
-                    <span>Артикул:</span>
-                    <span>1524882</span>
+                    <span>@lang('product.vendor_code'):</span>
+                    <span>{{ $product['vendor_code'] }}</span>
                 </div>
             </div>
             <div class="pd_characteristics noselect">
-                <div class="pd_c_size">
-                    <label>
-                        <input type="radio" name="product_size" checked/>
-                        <div>S</div>
-                    </label>
-                    <label>
-                        <input type="radio" name="product_size"/>
-                        <div>M</div>
-                    </label>
-                    <label>
-                        <input type="radio" name="product_size"/>
-                        <div>L</div>
-                    </label>
-                </div>
-                <div class="pd_c_color">
-                    <label>
-                        <input type="radio" name="product_color" checked/>
-                        <div class="pd_c_color_containter">
-                            <div class="pd_c_color_fill" style="background-color: red"></div>
+                @foreach($characteristics as $char)
+                    @php
+                        $char_values_id = explode(',', $char->char_values_id);
+                        $char_values = explode(',', $char->char_values);
+                    @endphp
+                    @if($char->type == '4')
+                        <div class="pd_c_size characteristic_group" data-type="4">
+                            @foreach($char_values as $key => $value)
+                                <label>
+                                    <input data-id='{{ $char_values_id[$key] }}'
+                                           type="radio"
+                                           name="product_size" {{ $key == 0? 'checked': '' }}/>
+                                    <div>{{ $value }}</div>
+                                </label>
+                            @endforeach
                         </div>
-                    </label>
-                    <label>
-                        <input type="radio" name="product_color"/>
-                        <div class="pd_c_color_containter">
-                            <div class="pd_c_color_fill" style="background-color: black"></div>
+                    @elseif($char->type == '5')
+                        <div class="pd_c_color characteristic_group" data-type="5">
+                            @foreach($char_values as $key => $value)
+                                <label>
+                                    <input data-id='{{ $char_values_id[$key] }}'
+                                           type="radio"
+                                           name="product_color" {{ $key == 0? 'checked': '' }}/>
+                                    <div class="pd_c_color_containter">
+                                        <div class="pd_c_color_fill" style="background-color: {{ $value }}"></div>
+                                    </div>
+                                </label>
+                            @endforeach
                         </div>
-                    </label>
-                </div>
+                    @endif
+                @endforeach
             </div>
             <div class="add_to_cart">
-                <button>
-                    Добавить в корзину
+                <button onclick="Cart.add(1,'naem',true)">
+                    @lang('buttons.add_to_basket')
                 </button>
             </div>
             <div class="pd_tab_nav noselect">
                 <label class="pd_tab_btn">
                     <input type="radio" hidden checked name="pd_tab" onchange="$(this).next().click()"/>
                     <label for="pd_tad_info"></label>
-                    <span>Описание</span>
+                    <span>@lang('product.tab_description')</span>
                 </label>
                 <label class="pd_tab_btn">
                     <input type="radio" hidden name="pd_tab" onchange="$(this).next().click()"/>
                     <label for="pd_tad_delivery"></label>
-                    <span>Доставка</span>
+                    <span>@lang('product.tab_delivery')</span>
                 </label>
                 <label class="pd_tab_btn">
                     <input type="radio" hidden name="pd_tab" onchange="$(this).next().click()"/>
                     <label for="pd_tad_comments"></label>
-                    <span>Коментарии </span>
+                    <span>@lang('product.tab_comments')</span>
                 </label>
             </div>
             <div class="pd_tab_data">
                 <input id="pd_tad_info" type="radio" hidden checked name="pd_tab_data">
 
                 <div>
-                    <p>
-                        Before you start off to the website, answer one question: what is it that you pursue when
-                        choosing your lingerie? Is it soothing comfort or breathtaking seductive power?
-                        Every woman knows that her most sophisticated and impressive outfit is not complete without
-                        perfect lingerie underneath. Just as an old joke says, “She was wearing all white, but no one
-                        could see that, as there was a black dress on her”.
-                    </p>
+                    {{ $product['description_'.$lan] }}
                 </div>
 
                 <input id="pd_tad_delivery" type="radio" hidden name="pd_tab_data">
@@ -102,8 +98,13 @@
         </div>
     </section>
     <script>
-        var b = new Gallery('product_photo_full');
-
+        new Gallery('product_photo_full', 'product_photo_thumbs');
+        $(document).ready(function () {
+            $("#product_photo_thumbs").mCustomScrollbar({
+                theme: 'dark-thick',
+                autoHideScrollbar: true
+            });
+        });
     </script>
     <!-- Disqus load script -->
     <script>
@@ -117,7 +118,7 @@
          this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
          };
          */
-        (function() { // DON'T EDIT BELOW THIS LINE
+        (function () { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
             s.src = 'https://svit-vishivki.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
@@ -125,5 +126,6 @@
         })();
 
     </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
 @endsection

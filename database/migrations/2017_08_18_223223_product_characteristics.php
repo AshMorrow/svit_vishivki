@@ -18,7 +18,7 @@ class ProductCharacteristics extends Migration
            $table->unsignedInteger('c_id');
 
            $table->foreign('p_id')->references('id')->on('products');
-           $table->foreign('c_id')->references('id')->on('characteristics');
+           $table->foreign('c_id')->references('id')->on('characteristic_value');
         });
     }
 

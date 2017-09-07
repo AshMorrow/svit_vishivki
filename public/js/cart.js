@@ -1,3 +1,7 @@
+/**
+ * Use for add or remove products to cart/basket
+ * @type {{increaseCounter: Cart.increaseCounter, decreaseCounter: Cart.decreaseCounter, addProductToSmallCart: Cart.addProductToSmallCart, add: Cart.add, delete: Cart.delete, chQuantity: Cart.chQuantity, recountTotalPrice: Cart.recountTotalPrice, smallOpenToggle: Cart.smallOpenToggle}}
+ */
 var Cart = {
 
     increaseCounter: function () {
@@ -44,8 +48,9 @@ var Cart = {
      * Add item to product cart
      * @param productId
      * @param productName
+     * @param selectChar
      */
-    add: function (productId, productName) {
+    add: function (productId, productName, selectChar) {
         if (typeof(productId) != 'number') return;
         if (typeof(productName) != 'string' || productName == '') {
             console.log('Enter item name');
@@ -96,6 +101,10 @@ var Cart = {
 
     },
 
+    /**
+     * Delete product form cart/basket
+     * @param productId
+     */
     delete: function (productId) {
 
         var productInCart = Cookie.get('productInCart');
@@ -105,7 +114,7 @@ var Cart = {
             productInCart.items.map(function (product, i, arr) {
                 if (product.id == productId) {
                     arr.splice(i, 1);
-                    Cart.recountTotalPrice(0,product.quantity,productId)
+                    Cart.recountTotalPrice(0, product.quantity, productId)
                 }
             });
 
@@ -123,6 +132,12 @@ var Cart = {
         $('.cart_item[data-id=' + productId + ']').remove();
 
     },
+
+    /**
+     * Change item quantity in cart/basket
+     * @param obj
+     * @param productId
+     */
     chQuantity: function (obj, productId) {
         var quantity = parseInt($(obj).val());
         if (quantity > 0) {
@@ -136,7 +151,7 @@ var Cart = {
                         product.quantity = quantity;
                     }
                 });
-                this.recountTotalPrice(previousQuantity,quantity,productId);
+                this.recountTotalPrice(previousQuantity, quantity, productId);
                 $('.cart_item[data-id=' + productId + ']').find('.quantity').val(quantity);
                 Cookie.set('productInCart', JSON.stringify(productInCart), {
                     expires: 3600,
@@ -146,21 +161,42 @@ var Cart = {
         }
     },
 
+    /**
+     * Recalculate total price in full cart/basket after delete product or change quantity
+     * @param prevQuantity
+     * @param quantity
+     * @param productId
+     */
     recountTotalPrice: function (prevQuantity, quantity, productId) {
         var totalPrice = parseInt($('#total_price').text());
         if (totalPrice) {
             var productPrice = parseInt($('.cart_item[data-id=' + productId + ']').find('.product_price').text());
-            if(prevQuantity > 0){
+            if (prevQuantity > 0) {
                 totalPrice -= productPrice * prevQuantity;
                 totalPrice += productPrice * quantity;
-            }else{
+            } else {
                 totalPrice -= productPrice * quantity;
             }
 
             $('#total_price').text(totalPrice);
         }
     },
+    /**
+     * Select characteristics from product page
+     * IMPORTANT:
+     *  characteristics container MAST have class "characteristic_group"
+     *  and attribute "data-type" with type id
+     * Types:
+     * --> Size: 4
+     * --> Color: 5
+     */
+    selectCharacteristics: function () {
+        var available_characteristics = $('.pd_characteristics .characteristic_group');
+        for(var i = 0; i < available_characteristics.length; i++){
+            console.log($(available_characteristics[i]).attr('data-type'));
+        }
 
+    },
     smallOpenToggle: function () {
         $('#small_shop_cart').fadeToggle();
     },

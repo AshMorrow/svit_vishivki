@@ -1,10 +1,98 @@
-#galleryContainerOpened {
+#galleryContainerBackground {
   display: flex;
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   overflow: auto;
   z-index: 999;
+  align-items: center;
+}
+#galleryContainerBackground #galleryElementsContainer {
+  background: #fff;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: 876px;
+  margin: 10px auto;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 0px #fff;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryTopContainer {
+  height: 71px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  justify-content: space-between;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryTopContainer .galleryTopLabel span {
+  font-family: "Ubuntu";
+  font-size: 2em;
+  margin-left: 1em;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryTopContainer .galleryTopBtnContainer {
+  font-family: 'Linearicons';
+  font-size: 2em;
+  margin-right: 30px;
+  font-weight: 600;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+  color: #fd5397;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryTopContainer .galleryTopBtnContainer:hover {
+  transition: all 0.3s;
+  cursor: pointer;
+  color: #0ecff5;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryContentPhotoContainer {
+  display: flex;
+  flex-grow: 1;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryContentPhotoContainer img {
+  display: none;
+  margin: 0 auto;
+  max-height: 800px;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryContentPhotoContainer img.active {
+  display: block;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryThumbnailContainer {
+  max-width: 85px;
+  width: 100%;
+  margin-right: 30px;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryThumbnailContainer div.gallery_thumbs {
+  width: 58px;
+  height: 58px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+  border: 1px solid transparent;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryThumbnailContainer div.gallery_thumbs:hover {
+  cursor: pointer;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryThumbnailContainer div.gallery_thumbs.active {
+  border: 1px solid #fd5397;
+  transition: all 0.3s;
+}
+#galleryContainerBackground #galleryElementsContainer .galleryContentContainer .galleryThumbnailContainer div.gallery_thumbs img {
+  max-width: 54px;
+  max-height: 54px;
 }

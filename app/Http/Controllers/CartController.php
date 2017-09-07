@@ -22,9 +22,7 @@ class CartController extends Controller
             }
 
             $order_products_all_data = DB::table('products AS p')
-                ->leftJoin('product_colors AS pc', 'pc.p_id', '=', 'p.id')
-                ->leftJoin('available_colors AS ac', 'ac.id', '=', 'pc.ac_id')
-                ->select('p.*', 'pc.*', 'p.id AS id')
+                ->select('p.*')
                 ->whereIn('p.id', $order_products)
                 ->where('p.is_active', '=', 1)
                 ->get()->toArray();
@@ -40,7 +38,6 @@ class CartController extends Controller
                     }
                 }
             }
-
         }
         return view('pages.fullCart',
             [
