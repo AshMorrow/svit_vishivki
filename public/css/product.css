@@ -135,6 +135,7 @@
   width: 43px;
   height: 42px;
   border: 1px solid #eae9e9;
+  padding: 2px;
 }
 .product_container #product_details_container .pd_characteristics .pd_c_color div.pd_c_color_containter:hover {
   cursor: pointer;

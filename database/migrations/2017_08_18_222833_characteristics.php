@@ -15,7 +15,8 @@ class Characteristics extends Migration
     {
         Schema::create('characteristics', function (Blueprint $table){
            $table->increments('id');
-           $table->string('name');
+           $table->string('name_ru');
+           $table->string('name_ua');
            $table->tinyInteger('type');
         });
     }

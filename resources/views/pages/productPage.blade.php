@@ -62,7 +62,7 @@
                 @endforeach
             </div>
             <div class="add_to_cart">
-                <button onclick="Cart.add(1,'naem',true)">
+                <button onclick="Cart.add({{ $product['id'] }}, '{{ $product['name_'.$lan] }}',true)">
                     @lang('buttons.add_to_basket')
                 </button>
             </div>

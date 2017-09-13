@@ -1,3 +1,7 @@
+/**
+  Main.css using for elements what available on all parts of site
+ */
+
 @import "variables.less";
 @import "lib.less";
 
@@ -149,8 +153,11 @@
   overflow: auto;
 
   .sh_label {
-    font-size: 1.5rem;
+    font-size: 1.3em;
     margin-bottom: 10px;
+    font-family: "Ubuntu", sans-serif;
+    border-bottom: 1px solid @borderLineColor;
+    padding-bottom: 5px;
   }
   .sh_items {
     display: flex;
@@ -172,6 +179,8 @@
 
       .item_name {
         font-size: 1.8rem;
+        height: 28px;
+        overflow: hidden;
       }
 
       input {
@@ -197,12 +206,13 @@
       .sh_remove_item {
         align-items: center;
         width: 35px;
-        &:hover span {
+          &:hover span {
           color: @mainColor;
           cursor: pointer;
           .hoverAnimation();
         }
         span {
+          font-family: "Linearicons", sans-serif;
           font-size: 2rem;
         }
       }
@@ -222,8 +232,15 @@
   justify-content: center;
   box-shadow: 0 0 5px -6px @shadowColor inset;
   top: 0;
+  &:hover{
+    .hoverAnimation();
+    background-color: @hoverButtonsColor;
+    text-decoration: none;
+    color: #fff;
+  }
   &:active {
     .hoverAnimation();
+    color: #fff;
     margin-top: 1px;
     box-shadow: 0 0 8px 0px @shadowColor inset
   }

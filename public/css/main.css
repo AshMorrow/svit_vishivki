@@ -1,3 +1,6 @@
+/**
+  Main.css using for elements what available on all parts of site
+ */
 @keyframes menu_show {
   from {
     top: 60px;
@@ -128,8 +131,11 @@
   overflow: auto;
 }
 #small_shop_cart .sh_label {
-  font-size: 1.5rem;
+  font-size: 1.3em;
   margin-bottom: 10px;
+  font-family: "Ubuntu", sans-serif;
+  border-bottom: 1px solid #eae9e9;
+  padding-bottom: 5px;
 }
 #small_shop_cart .sh_items {
   display: flex;
@@ -150,6 +156,8 @@
 }
 #small_shop_cart .sh_items .sh_item .item_name {
   font-size: 1.8rem;
+  height: 28px;
+  overflow: hidden;
 }
 #small_shop_cart .sh_items .sh_item input {
   width: 40px;
@@ -178,6 +186,7 @@
   transition: all 0.3s;
 }
 #small_shop_cart .sh_items .sh_item .sh_remove_item span {
+  font-family: "Linearicons", sans-serif;
   font-size: 2rem;
 }
 .sh_open_full_cart a {
@@ -193,8 +202,15 @@
   box-shadow: 0 0 5px -6px #888 inset;
   top: 0;
 }
+.sh_open_full_cart a:hover {
+  transition: all 0.3s;
+  background-color: #0ecff5;
+  text-decoration: none;
+  color: #fff;
+}
 .sh_open_full_cart a:active {
   transition: all 0.3s;
+  color: #fff;
   margin-top: 1px;
   box-shadow: 0 0 8px 0px #888 inset;
 }

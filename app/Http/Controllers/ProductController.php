@@ -27,7 +27,8 @@ class ProductController extends Controller
 
         $characteristics = DB::table('characteristics AS c')
             ->select(DB::raw('
-                c.name, 
+                c.name_ru,
+                c.name_ua,
                 c.type,
                 GROUP_CONCAT(DISTINCT cv.id) AS char_values_id, 
                 GROUP_CONCAT(DISTINCT cv.value) AS char_values')

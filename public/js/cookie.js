@@ -42,7 +42,8 @@ var Cookie = {
     // удаляет cookie с именем name
     delete: function (name) {
         this.set(name, "", {
-            expires: -1
+            expires: -1,
+            path: '/'
         })
     }
 };

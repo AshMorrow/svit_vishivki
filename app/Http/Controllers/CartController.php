@@ -4,45 +4,65 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\App;
 
 class CartController extends Controller
 {
+
+    private function getOptions($optionsIds){
+        if(!$optionsIds && is_string($optionsIds)) return;
+
+        $options = DB::table('characteristics AS c')
+            ->select(DB::raw('
+                c.name_ru,
+                c.name_ua, 
+                c.type,
+                GROUP_CONCAT(DISTINCT cv.id) AS char_values_id, 
+                GROUP_CONCAT(DISTINCT cv.value) AS char_values')
+            )
+            ->leftJoin('characteristic_value AS cv', 'cv.c_id', '=', 'c.id')
+            ->whereIn('cv.id',explode(',', $optionsIds))
+            ->groupBy('c.id')
+            ->get()->toArray();
+        return $options;
+    }
 
     public function show(Request $request)
     {
         if (isset($_COOKIE['productInCart']) && $_COOKIE['productInCart']) {
 
-            $order_products_json = json_decode($_COOKIE['productInCart'])->items;
-
-            $order_products = [];
-            $quantity = [];
-            foreach ($order_products_json as $product) {
-                $order_products[] = $product->id;
-                $quantity[] = $product->quantity;
-            }
+            $products = (array)json_decode($_COOKIE['productInCart'])->products;
+            $order_products_ids = array_keys($products);
 
             $order_products_all_data = DB::table('products AS p')
                 ->select('p.*')
-                ->whereIn('p.id', $order_products)
+                ->whereIn('p.id', $order_products_ids)
                 ->where('p.is_active', '=', 1)
-                ->get()->toArray();
+                ->get();
 
-            $sort_by_add = [];
             $total_price = 0;
-            foreach ($order_products as $key => $id) {
-                foreach ($order_products_all_data as $data) {
-                    if ($id == $data->id) {
-                        $data->quantity = $quantity[$key];
-                        $sort_by_add[] = $data;
-                        $total_price += $quantity[$key] * $data->price;
+            $options = '';
+            foreach ($order_products_all_data as $data) {
+                foreach ($products as $id => $product){
+                    if($id == $data->id){
+                        $data->personalValues = $product->personalValues;
+                        foreach ($product->personalValues as $value){
+                            $total_price += $value->quantity * $data->price;
+                            $options .= implode(',', $value->characteristics);
+                            $options .= ',';
+                        }
                     }
                 }
             }
         }
+
+
         return view('pages.fullCart',
             [
-                'products_for_order' => $sort_by_add ?? null,
-                'total_price' => $total_price ?? null
+                'products_for_order' => $order_products_all_data ?? null,
+                'options' => $this->getOptions($options?? null),
+                'total_price' => $total_price ?? null,
+                'lan' => App::getLocale()
             ]);
 
     }
@@ -77,14 +97,14 @@ class CartController extends Controller
             'email' => $request->input('email'),
             'phone' => $request->input('phone'),
             'delivery_type' => $request->input('delivery_type'),
-            'delivery_address' => $request->input('delivery_address')?? '',
-            'n_post_city' => $request->input('n_post_city')?? '',
-            'n_post_office' => $request->input('n_post_office')?? ''
+            'delivery_address' => $request->input('delivery_address') ?? '',
+            'n_post_city' => $request->input('n_post_city') ?? '',
+            'n_post_office' => $request->input('n_post_office') ?? ''
         ]);
 
         $order_products_json = json_decode($_COOKIE['productInCart'])->items;
         $query = [];
-        
+
         foreach ($order_products_json as $product) {
             $query[] = [
                 'order_id' => $lastInsertId,

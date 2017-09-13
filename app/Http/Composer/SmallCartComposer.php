@@ -15,8 +15,7 @@ class SmallCartComposer
     public function compose(View $view)
     {
         if (isset($_COOKIE['productInCart']) && $_COOKIE['productInCart']) {
-
-            $products = json_decode($_COOKIE['productInCart'])->items;
+            $products = json_decode($_COOKIE['productInCart'])->products;
             return $view->with('products',$products);
         }
     }

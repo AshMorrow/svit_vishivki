@@ -3,7 +3,6 @@
 <head>
     <title>@yield('title')</title>
 
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/jquery-ui/jquery-ui.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/mainPage.css">
@@ -14,7 +13,7 @@
 
 
     <script src="/js/jquery.min.js"></script>
-    <script src="/bootstrap/js/bootstrap.js"></script>
+
     <script src="/js/cookie.js"></script>
     <script src="/js/cart.js"></script>
     <script src="/js/order.js"></script>
@@ -22,6 +21,10 @@
     <script src="/js/maskedinput.min.js"></script>
     <script src="/js/newPost.js"></script>
     <script src="/jquery-ui/jquery-ui.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <script src="/bootstrap/js/bootstrap.js"></script>
 
     <!-- custom scroll bar -->
     <link rel="stylesheet" href="/custom_scrollbar/jquery.mCustomScrollbar.css">
