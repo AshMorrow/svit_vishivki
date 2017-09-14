@@ -19,6 +19,7 @@ class OrderProducts extends Migration
             $table->unsignedInteger('product_id');
             $table->smallInteger('quantity');
             $table->float('price_per_one');
+            $table->string('options');
 
             $table->foreign('order_id')->references('id')->on('orders');
             $table->foreign('product_id')->references('id')->on('products');

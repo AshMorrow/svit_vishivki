@@ -4,16 +4,16 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Pagination Language Lines
+    | Мовні ресурси для виведення декількох сторінок
     |--------------------------------------------------------------------------
     |
-    | The following language lines are used by the paginator library to build
-    | the simple pagination links. You are free to change them to anything
-    | you want to customize your views to better match your application.
+    | Наведені нижче ресурси використовуються бібліотекою виведення сторінок
+    | для створення посилать навігації. Ви можете їх змінити на будь-які
+    | інші тексти посилань, що краще підходитимуть Вашому додатку.
     |
     */
 
-    'previous' => '&laquo; Previous',
-    'next' => 'Next &raquo;',
+    'previous' => '&laquo; Назад',
+    'next'     => 'Далі &raquo;',
 
 ];

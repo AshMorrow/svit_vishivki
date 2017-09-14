@@ -23,6 +23,8 @@ class Orders extends Migration
             $table->tinyInteger('delivery_type');
             $table->string('address');
             $table->string('new_post_office');
+            $table->tinyInteger('order_status');
+            $table->timestamps();
         });
     }
 

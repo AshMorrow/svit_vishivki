@@ -28,4 +28,15 @@ Route::group(
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(
+  [
+      "middleware" => ['isAdmin']
+  ],
+  function (){
+      Route::get('/admin','AdminController@main_page');
+      Route::get('/admin/orders','AdminOrdersController@getOrdersList');
+      Route::get('/admin/orders/{id}','AdminOrdersController@orderDetails');
+  }
+);
+
+//Route::get('/home', 'HomeController@index')->name('home');

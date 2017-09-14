@@ -102,7 +102,8 @@
                                         <span class="product_price">{{ number_format($product->price,2)}}</span>
                                         <span> грн.</span>
                                     </div>
-                                    <div class="o_product_remove" onclick="Cart.delete({{$product->id}}, '{{ $value->uniqueKey }}')">
+                                    <div class="o_product_remove"
+                                         onclick="Cart.delete({{$product->id}}, '{{ $value->uniqueKey }}')">
                                         <span class="lnr lnr-trash"></span>
                                     </div>
                                 </div>
@@ -115,6 +116,15 @@
                     <span id="total_price">{!! $total_price !!}</span>
                     <span>грн.</span>
                 </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </section>
         @else
             <div class="no_products_in_cart">
@@ -137,13 +147,5 @@
             }
         });
     </script>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+
 @endsection
