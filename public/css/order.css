@@ -1,3 +1,6 @@
+/*
+  Full page and success order pages styles
+ */
 .wrapper {
   display: flex;
 }
@@ -268,4 +271,32 @@
 .no_products_in_cart .icon + span {
   font-size: 2em;
   color: rgba(0, 0, 0, 0.5);
+}
+/*
+Success order page
+ */
+.success_order_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-wrap: nowrap;
+}
+.success_order_wrapper .icon {
+  font-family: "Linearicons", sans-serif;
+  color: #3ffcad;
+  font-size: 6em;
+  font-weight: 300;
+}
+.success_order_wrapper .text {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 3em;
+  color: #fd5397;
+}
+.success_order_wrapper .text span {
+  color: #0c0c0c;
+}
+.success_order_wrapper .text-thx {
+  color: #fd5397;
 }

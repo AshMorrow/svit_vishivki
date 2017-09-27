@@ -5,7 +5,16 @@ use Illuminate\Support\Facades\DB;
 
 class Options{
 
-    public static function getValues($optionsIds){
+    protected static function toArray($options){
+
+        foreach($options as $option){
+            $option->char_values_id = explode(',',$option->char_values_id);
+            $option->char_values = explode(',',$option->char_values);
+        }
+
+    }
+
+    public static function getValues($optionsIds, $toArray = false){
 
         if(!$optionsIds && is_string($optionsIds)) return;
 
@@ -21,6 +30,11 @@ class Options{
             ->whereIn('cv.id',explode(',', $optionsIds))
             ->groupBy('c.id')
             ->get()->toArray();
+
+        if($toArray) {
+            self::toArray($options);
+        }
+
         return $options;
     }
 }

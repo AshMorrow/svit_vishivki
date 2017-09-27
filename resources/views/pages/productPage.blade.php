@@ -28,6 +28,7 @@
                     <span>{{ $product['vendor_code'] }}</span>
                 </div>
             </div>
+            @if(count($characteristics))
             <div class="pd_characteristics noselect">
                 @foreach($characteristics as $char)
                     @php
@@ -61,6 +62,7 @@
                     @endif
                 @endforeach
             </div>
+            @endif
             <div class="add_to_cart">
                 <button onclick="Cart.add({{ $product['id'] }}, '{{ $product['name_'.$lan] }}',true)">
                     @lang('buttons.add_to_basket')
@@ -87,7 +89,7 @@
                 <input id="pd_tad_info" type="radio" hidden checked name="pd_tab_data">
 
                 <div>
-                    {{ $product['description_'.$lan] }}
+                    {!! $product['description_'.$lan] !!}
                 </div>
 
                 <input id="pd_tad_delivery" type="radio" hidden name="pd_tab_data">

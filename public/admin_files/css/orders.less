@@ -1,7 +1,40 @@
-// all styles for orders pages
-
+@import "../../css/variables.less";
+@import "../../css/lib.less";
+// all styles for orders pages in admin panel
 // order details
 
-td.img img {
-  max-height: 100px;
+.products-in-order{
+  tr,td{
+    vertical-align: middle !important;
+  }
+  td.img img {
+    max-height: 100px;
+  }
+
+  .product_options{
+    text-align: center;
+    .option_group{
+      float: left;
+      max-height: 100px;
+      height: 65px;
+      margin-right: 10px;
+      .displayFlex(@justify: center, @align: center);
+      border: 1px solid @borderLineColor;
+      padding: 5px;
+      &:last-child{
+        margin-right: 0;
+      }
+      span{
+        margin-bottom: 5px;
+      }
+      div[data-option-type='4']{
+        .displayFlex(@justify: center, @align: center);
+        border: 1px solid @mainColor;
+      }
+      .product_color,div[data-option-type='4']{
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
 }

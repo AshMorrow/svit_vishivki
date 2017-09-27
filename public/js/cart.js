@@ -66,6 +66,16 @@ var Cart = {
             productInCart = Cookie.get('productInCart'),
             selectedCharacteristics = [{}],
             uniqueKey = Math.random().toString(36);
+
+        function newProductData() {
+            return {
+                "quantity": 1,
+                "characteristics": selectedCharacteristics,
+                "uniqueKey": uniqueKey
+            }
+        }
+
+
         // If some pro
         if (productInCart) {
             productInCart = JSON.parse(productInCart);
@@ -88,11 +98,7 @@ var Cart = {
                         }
                     });
                     if (addNewCharacteristics) {
-                        productData.personalValues.push({
-                            "quantity": 1,
-                            "characteristics": selectedCharacteristics,
-                            "uniqueKey": uniqueKey
-                        });
+                        productData.personalValues.push(newProductData());
                         isNew = false;
                     }
                 }
@@ -102,11 +108,7 @@ var Cart = {
             if (isNew) {
                 productInCart.products[productId] = {
                     "name": productName,
-                    "personalValues": [{
-                        "quantity": 1,
-                        "characteristics": selectedCharacteristics,
-                        "uniqueKey": uniqueKey
-                    }]
+                    "personalValues": [newProductData()]
                 };
             }
 
@@ -123,11 +125,7 @@ var Cart = {
             productInCart = {products: {}};
             productInCart.products[productId] = {
                 "name": productName,
-                "personalValues": [{
-                    "quantity": 1,
-                    "characteristics": selectedCharacteristics,
-                    "uniqueKey": uniqueKey
-                }]
+                "personalValues": [newProductData()]
 
             };
 

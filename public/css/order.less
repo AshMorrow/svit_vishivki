@@ -1,3 +1,6 @@
+/*
+  Full page and success order pages styles
+ */
 @import "variables.less";
 @import "lib.less";
 
@@ -234,5 +237,31 @@
   .icon + span{
     font-size: 2em;
     color: rgba(0,0,0,0.5);
+  }
+}
+
+/*
+Success order page
+ */
+
+.success_order_wrapper{
+  .displayFlex(@align: center, @justify: center);
+  .icon{
+    font-family: "Linearicons", sans-serif;
+    //color: @mainColor;
+    color: #3ffcad;
+    font-size: 6em;
+    font-weight: 300;
+  }
+  .text{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 3em;
+    color: @mainColor;
+    span{
+      color: #0c0c0c;
+    }
+  }
+  .text-thx{
+    color: @mainColor;
   }
 }

@@ -39,7 +39,7 @@
             $("#slider-range").slider({
                 range: true,
                 min: 0,
-                max: 500,
+                max: 1000,
                 values: [75, 300],
                 slide: function (event, ui) {
                     $("#filter_price_value_min").val(ui.values[0]);

@@ -19,11 +19,25 @@ Route::group(
     function () {
         /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
         Route::get('/', 'ShopController@main');
-        Route::get('cart', 'CartController@show');
-        Route::post('cart', 'CartController@create_order');
 
         Route::get('/category/{path}', 'CatalogController@show')->where('path', '.*?');
         Route::get('/product/{path}', 'ProductController@show');
+
+        /**
+         * Cart routes
+         */
+        Route::get('/cart', 'CartController@show');
+
+        /**
+         * Order routes
+         */
+
+        Route::post('/cart', 'OrderController@create');
+        Route::get('/order-created', 'OrderController@success');
+
+
+
+
     });
 
 Auth::routes();
@@ -33,10 +47,9 @@ Route::group(
       "middleware" => ['isAdmin']
   ],
   function (){
-      Route::get('/admin','AdminController@main_page');
+      Route::get('/admin','AdminController@mainPage');
       Route::get('/admin/orders','AdminOrdersController@getOrdersList');
       Route::get('/admin/orders/{id}','AdminOrdersController@orderDetails');
+      Route::get('/admin/logout', 'Auth\LoginController@logout');
   }
 );
-
-//Route::get('/home', 'HomeController@index')->name('home');

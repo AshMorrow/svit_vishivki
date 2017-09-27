@@ -27,6 +27,17 @@
 /***
     Main part
  */
+html,
+body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto !important;
+}
 @media (min-width: 1200px) {
   .container {
     width: 100%;
@@ -248,6 +259,7 @@
   justify-content: center;
   flex-grow: 0;
   flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 #main_menu > div {
   text-transform: uppercase;
@@ -367,7 +379,8 @@ footer .corporate_info {
   justify-content: center;
 }
 #carousel_new_products .photo img {
-  max-height: 384px;
+  height: 100%;
+  max-width: 232px;
 }
 #carousel_new_products .btn-add {
   outline: none;

@@ -34,10 +34,9 @@
     <link rel="stylesheet" href="/gallery/css/gallery.css">
     <script src="/gallery/js/gallery.js"></script>
 
-    <!-- bx_slider -->
-    <link rel="stylesheet" href="/bxslider/jquery.bxslider.min.css">
-    <script src="/bxslider/jquery.bxslider.min.js"></script>
-
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="/owl/assets/owl.carousel.min.css">
+    <script src="/owl/owl.carousel.min.js"></script>
     <!-- favicon star -->
     <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
@@ -53,7 +52,6 @@
           rel="stylesheet">
 </head>
 <body>
-<div class="cont_1">
 <header class="container">
     <nav class="main_top_nav nav nav-pills nav-justified">
         <div class="language_change">
@@ -102,5 +100,4 @@
 
 </footer>
 </body>
-</div>
 </html>

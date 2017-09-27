@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     // Showing main page of Admin panel
-    public function main_page(){
+    public function mainPage(){
 
         return view('admin.main');
     }

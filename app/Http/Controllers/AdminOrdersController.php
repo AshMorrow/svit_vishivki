@@ -30,7 +30,7 @@ class AdminOrdersController extends Controller
             $optionIds .= $product->options.',';
         }
 
-        $options = (Options::getValues($optionIds));
+        $options = (Options::getValues($optionIds, true));
 
         return view('admin.orderDetails', ['orderData' => $order, 'options' => $options]);
 

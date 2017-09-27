@@ -92,6 +92,12 @@
       width: 100%;
       margin-bottom: 10px;
       display: flex;
+      .characteristic_group{
+        margin-right: 30px;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
       .pd_c_size {
         input {
           display: none;
@@ -113,7 +119,6 @@
       }
 
       .pd_c_color {
-        margin-left: 30px;
         input {
           display: none;
           &:checked + div {

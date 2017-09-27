@@ -34,6 +34,17 @@
 /***
     Main part
  */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main{
+  //display: flex !important;
+  flex: 1 0 auto !important;
+}
 @media (min-width: 1200px) {
   .container {
     width: 100%;
@@ -278,6 +289,7 @@
 
 #main_menu {
   .displayFlex(@direction: row , @justify: center);
+  flex-shrink: 0;
   & > div {
     text-transform: uppercase;
     font-weight: 500;
@@ -389,7 +401,10 @@ footer {
     display: flex;
     justify-content: center;
     img {
-      max-height: 384px;
+      //max-height: 384px;
+      //max-width: 300px;
+      height: 100%;
+      max-width: 232px;
     }
   }
   .btn-add {
