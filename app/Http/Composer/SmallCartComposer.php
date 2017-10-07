@@ -18,5 +18,7 @@ class SmallCartComposer
             $products = json_decode($_COOKIE['productInCart'])->products;
             return $view->with('products',$products);
         }
+
+        return $view->with('products', null);
     }
 }

@@ -9,6 +9,6 @@
             </div>
         </div>
         <div id="slider-range"></div>
-        <button type="submit">send</button>
+        <button type="submit">@lang('buttons.filter')</button>
     </form>
 </aside>

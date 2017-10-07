@@ -1,4 +1,64 @@
+@import "variables";
+@import "lib";
+
 #mp_slider{
     box-shadow: 0px 5px 8px -5px;
     margin-bottom: 90px;
+}
+
+/***
+    carousel styles
+*/
+
+.carousel_nav_container a {
+    color: @shadowColor;
+    font-size: 2.5rem;
+    text-decoration: none;
+    &:active,
+    &:hover {
+        color: @mainColor;
+        cursor: pointer;
+    }
+}
+
+.main_products_carousel {
+    margin: 50px 0;
+    a {
+        .displayFlex(@wrap: wrap);
+        max-height: 423px;
+        padding: 5px;
+        &:hover,&:active{
+            text-decoration: none;
+            .item{
+                .productHover();
+            }
+        }
+        .item{
+            display: flex;
+            padding: 5px;
+            flex-direction: column;
+
+            .photo {
+                display: flex;
+                justify-content: center;
+                img {
+                    max-width: 232px;
+                }
+            }
+            .btn-add {
+                .addToCartBtn();
+            }
+            .price {
+                text-align: center;
+            }
+            .slide_product_price {
+                font-size: 2rem;
+                color: @mainColor;
+            }
+            .slide_product_name {
+                font-size: 1.5rem;
+                font-family: 'Roboto', sans-serif;
+            }
+        }
+    }
 }

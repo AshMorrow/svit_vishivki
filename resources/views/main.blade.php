@@ -23,7 +23,7 @@
     <script src="/jquery-ui/jquery-ui.js"></script>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
         <script src="/bootstrap/js/bootstrap.js"></script>
 
     <!-- custom scroll bar -->

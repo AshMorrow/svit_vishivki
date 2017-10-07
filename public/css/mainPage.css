@@ -1,1 +1,91 @@
-#mp_slider{box-shadow:0 5px 8px -5px;margin-bottom:90px}
+#mp_slider {
+  box-shadow: 0px 5px 8px -5px;
+  margin-bottom: 90px;
+}
+/***
+    carousel styles
+*/
+.carousel_nav_container a {
+  color: #888;
+  font-size: 2.5rem;
+  text-decoration: none;
+}
+.carousel_nav_container a:active,
+.carousel_nav_container a:hover {
+  color: #fd5397;
+  cursor: pointer;
+}
+.main_products_carousel {
+  margin: 50px 0;
+}
+.main_products_carousel a {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  max-height: 423px;
+  padding: 5px;
+}
+.main_products_carousel a:hover,
+.main_products_carousel a:active {
+  text-decoration: none;
+}
+.main_products_carousel a:hover .item,
+.main_products_carousel a:active .item {
+  box-shadow: 0 0 10px -3px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.main_products_carousel a .item {
+  display: flex;
+  padding: 5px;
+  flex-direction: column;
+}
+.main_products_carousel a .item .photo {
+  display: flex;
+  justify-content: center;
+}
+.main_products_carousel a .item .photo img {
+  max-width: 232px;
+}
+.main_products_carousel a .item .btn-add {
+  outline: none;
+  border: none;
+  background-color: #fd5397;
+  width: 188px;
+  padding: 13px 0;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s;
+}
+.main_products_carousel a .item .btn-add i {
+  font-size: 3rem;
+  margin-right: 5px;
+}
+.main_products_carousel a .item .btn-add:hover {
+  transition: all 0.3s;
+  background-color: #0ecff5;
+  cursor: pointer;
+}
+.main_products_carousel a .item .btn-add:active {
+  top: 0.5px;
+}
+.main_products_carousel a .item .price {
+  text-align: center;
+}
+.main_products_carousel a .item .slide_product_price {
+  font-size: 2rem;
+  color: #fd5397;
+}
+.main_products_carousel a .item .slide_product_name {
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}

@@ -1,10 +1,10 @@
 @php($product_counter = 0)
-
 <!-- shop cart information container -->
 <div id="small_shop_cart" style="display: none">
     <div class="sh_label">Корзина</div>
     <div class="sh_items">
-        @if(isset($products))
+
+        @if(isset($products) && $products)
             @foreach($products as $id => $product)
                 @foreach($product->personalValues as $value)
                     @php($product_counter++)

@@ -50,6 +50,7 @@ Route::group(
       Route::get('/admin','AdminController@mainPage');
       Route::get('/admin/orders','AdminOrdersController@getOrdersList');
       Route::get('/admin/orders/{id}','AdminOrdersController@orderDetails');
+      Route::post('/admin/orders/{id}', 'AdminOrdersController@updateOrder');
       Route::get('/admin/logout', 'Auth\LoginController@logout');
   }
 );

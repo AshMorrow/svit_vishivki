@@ -7,7 +7,7 @@
             @endphp
             <aside class="col-md-4">
                 <form id="order_form" method="post">
-                    {{csrf_field()}}
+                    {!! csrf_field() !!}
                     <label>
                         <div>Имя:</div>
                         <input type="text" name="first_name" required>
@@ -136,15 +136,17 @@
         @endif
     </div>
     <script>
-        $('#order_phone').mask('(999) 999-9999');
-        $("#city_name").autocomplete({
-            source: function (r, response) {
-                response(NewPost.getCities(r.term))
-            },
-            select: function (event, ui) {
-                console.log(ui);
-                NewPost.getPostOffice(ui.item.value)
-            }
+        $('document').ready(function () {
+            $('#order_phone').mask('(999) 999-9999');
+            $("#city_name").autocomplete({
+                source: function (r, response) {
+                    response(NewPost.getCities(r.term))
+                },
+                select: function (event, ui) {
+                    console.log(ui);
+                    NewPost.getPostOffice(ui.item.value)
+                }
+            });
         });
     </script>
 

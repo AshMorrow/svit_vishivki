@@ -21,8 +21,8 @@
                                 </div>
                                 <div class="cp_name">{{$product->name_ru}}</div>
                             </a>
-                            <button class="cp_addToCart" onclick="Cart.add({{$product->id}},'{{$product->name_ru}}')">
-                                Купить
+                            <button class="cp_addToCart" onclick="">
+                                @lang('buttons.buy')
                             </button>
                         </div>
                     @endforeach
@@ -39,8 +39,8 @@
             $("#slider-range").slider({
                 range: true,
                 min: 0,
-                max: 1000,
-                values: [75, 300],
+                max: {{ $max_price }},
+                values: [{{$_GET['price']['price_from']?? 0}}, {{$_GET['price']['price_to']?? $max_price}}],
                 slide: function (event, ui) {
                     $("#filter_price_value_min").val(ui.values[0]);
                     $("#filter_price_value_max").val(ui.values[1]);

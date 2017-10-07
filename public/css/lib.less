@@ -6,7 +6,11 @@
   flex-grow: @grow;
   flex-wrap: @wrap;
 }
-
+.productHover(){
+  box-shadow: 0 0 10px -3px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
 .gradientSeparator() {
   @list: transparent 15%, @borderLineColor 70%, transparent 15%;
   background-image: svg-gradient(to right, @list);
@@ -43,5 +47,25 @@
   }
   &:active {
     top:0.5px;
+  }
+}
+
+.button(@width: 188px){
+  outline: none;
+  border: none;
+  background-color: @mainColor;
+  width: @width;
+  padding: 13px 0;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s;
+  &:hover{
+
   }
 }

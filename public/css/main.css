@@ -11,6 +11,14 @@
     opacity: 1;
   }
 }
+a:hover,
+a:active,
+a:visited,
+a:focus {
+  outline: none;
+  color: #333;
+  text-decoration: none !important;
+}
 .noselect {
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -182,6 +190,7 @@ main {
 #small_shop_cart .sh_items .sh_item .sh_image_container {
   width: 80px;
   margin-right: 10px;
+  flex-shrink: 0;
 }
 #small_shop_cart .sh_items .sh_item .sh_image_container img {
   max-width: 80px;
@@ -352,72 +361,18 @@ main {
   display: none;
 }
 footer {
-  height: 60px;
   margin-top: 25px;
   display: flex;
   align-items: center;
 }
 footer .corporate_info {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-wrap: nowrap;
   text-align: center;
   border-top: 1px solid #eae9e9;
-}
-/***
-    carousel styles
-*/
-.carousel_nav_container a {
-  color: #888;
-  font-size: 2.5rem;
-  text-decoration: none;
-}
-.carousel_nav_container a:active,
-.carousel_nav_container a:hover {
-  color: #fd5397;
-  cursor: pointer;
-}
-#carousel_new_products .photo {
-  display: flex;
-  justify-content: center;
-}
-#carousel_new_products .photo img {
-  height: 100%;
-  max-width: 232px;
-}
-#carousel_new_products .btn-add {
-  outline: none;
-  border: none;
-  background-color: #fd5397;
-  width: 188px;
-  padding: 13px 0;
-  margin: 0 auto;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: #fff;
-  align-items: center;
-  position: relative;
-  transition: all 0.3s;
-}
-#carousel_new_products .btn-add i {
-  font-size: 3rem;
-  margin-right: 5px;
-}
-#carousel_new_products .btn-add:hover {
-  transition: all 0.3s;
-  background-color: #0ecff5;
-  cursor: pointer;
-}
-#carousel_new_products .btn-add:active {
-  top: 0.5px;
-}
-#carousel_new_products .price {
-  text-align: center;
-}
-#carousel_new_products .slide_product_price {
-  font-size: 2rem;
-  color: #fd5397;
-}
-#carousel_new_products .slide_product_name {
-  font-size: 1.5rem;
-  font-family: 'Roboto', sans-serif;
 }

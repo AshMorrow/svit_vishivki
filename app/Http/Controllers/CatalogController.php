@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -73,13 +74,6 @@ class CatalogController extends Controller
 
     public function show($path, Request $request)
     {
-
-//        dd(DB::select('
-//         Select *, GROUP_CONCAT(DISTINCT pc.p_id ORDER BY pc.p_id ASC SEPARATOR \', \') AS books From products AS p
-//          LEFT JOIN product_characteristics AS pc ON pc.p_id = p.id
-//          LEFT JOIN characteristic_value AS cv ON cv.c_id = pc.c_id
-//          GROUP BY p.id
-//        '));
        if (isset($_GET) && $_GET) {
 
             $filer = $this->productFilter($request);
@@ -87,30 +81,27 @@ class CatalogController extends Controller
         }
         $categories_ids = $this->getCategoryIds($path);
 
+       $products = new Products();
+
+        $products = $products::where([
+            ['category_id', '=', end($categories_ids)],
+            ['is_active', '=', '1']
+        ]);
+
+        $max_price = $products->max('price');
 
         if(isset($filer)){
-            $filer[] = ['p.category_id', '=', end($categories_ids)];
-            $filer[] = ['p.is_active', '=', '1'];
+            $products = new Products();
+            $filer[] = ['category_id', '=', end($categories_ids)];
+            $filer[] = ['is_active', '=', '1'];
 
-            $products = DB::table('products AS p')
-                ->select('*')
-                ->where(
-                    $filer
-                )
-                ->get()->toArray();
-
-        }else{
-            $products = DB::table('products AS p')
-                ->select('*')
-                ->where([
-                    ['p.category_id', '=', end($categories_ids)],
-                    ['p.is_active', '=', '1']
-                ])
-                ->get()->toArray();
+            $products = $products::where($filer);
 
         }
 
-        return view('pages/catalog', ['products_data' => $products]);
+        $products = $products->get();
+
+        return view('pages/catalog', ['products_data' => $products, 'max_price' => $max_price]);
 
     }
 }

@@ -151,3 +151,34 @@
   border-radius: 12px;
   cursor: pointer;
 }
+#product_filter button[type=submit] {
+  outline: none;
+  border: none;
+  background-color: #fd5397;
+  width: 188px;
+  padding: 13px 0;
+  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s;
+  width: 135px;
+  padding: 6px 10px;
+  margin: 10px 0 0 auto;
+}
+#product_filter button[type=submit] i {
+  font-size: 3rem;
+  margin-right: 5px;
+}
+#product_filter button[type=submit]:hover {
+  transition: all 0.3s;
+  background-color: #0ecff5;
+  cursor: pointer;
+}
+#product_filter button[type=submit]:active {
+  top: 0.5px;
+}

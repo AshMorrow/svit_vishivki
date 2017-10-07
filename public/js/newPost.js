@@ -30,11 +30,10 @@ var NewPost = {
                 // return '<div onclick="NewPost.selectCity(\''+ d.DescriptionRu +'\')">' + d.DescriptionRu + '</div>'
                 return d.DescriptionRu
             });
-            // $('#city_response').html(html);
-            console.log(html);
+
             return html;
         } else if (res.data.length <= 0) {
-            // $('#city_response').html('').slideUp();
+
             return;
         }
         if (!$('#city_response').is(':visible')) {
@@ -50,8 +49,7 @@ var NewPost = {
         });
     },
 
-    getPostOffice: function (cityName) {
-        console.log(cityName);
+    getPostOffice: function (cityName, office) {
         var req = {
             "apiKey": "854bca8ae06ea099dae26d31a22e92e0",
             "modelName": "AddressGeneral",
@@ -71,6 +69,9 @@ var NewPost = {
                 return '<option value="'+d.Number+'">' + d.DescriptionRu + '</option>'
             });
             $('#n_post_office').html(html);
+            if(office){
+                $('#n_post_office').find("option[value="+ office +"]").attr('selected', true);
+            }
         }
 
     },
