@@ -13,12 +13,12 @@ class CharacteristicValues extends Migration
      */
     public function up()
     {
-        Schema::create('characteristic_value', function (Blueprint $table){
+        Schema::create('options_value', function (Blueprint $table){
            $table->primary('id');
            $table->unsignedInteger('c_id');
            $table->string('value');
 
-           $table->foreign('c_id')->references('id')->on('characteristics');
+           $table->foreign('c_id')->references('id')->on('options');
         });
     }
 

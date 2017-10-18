@@ -18,17 +18,38 @@ class Options{
 
         if(!$optionsIds && is_string($optionsIds)) return;
 
-        $options = DB::table('characteristics AS c')
+        $options = DB::table('options AS o')
             ->select(DB::raw('
-                c.name_ru,
-                c.name_ua, 
-                c.type,
-                GROUP_CONCAT(DISTINCT cv.id) AS char_values_id, 
-                GROUP_CONCAT(DISTINCT cv.value) AS char_values')
+                o.name_ru,
+                o.name_ua, 
+                o.type,
+                GROUP_CONCAT(DISTINCT ov.id) AS char_values_id, 
+                GROUP_CONCAT(DISTINCT ov.value) AS char_values')
             )
-            ->leftJoin('characteristic_value AS cv', 'cv.c_id', '=', 'c.id')
-            ->whereIn('cv.id',explode(',', $optionsIds))
-            ->groupBy('c.id')
+            ->leftJoin('options_value AS ov', 'ov.c_id', '=', 'o.id')
+            ->whereIn('ov.id',explode(',', $optionsIds))
+            ->groupBy('o.id')
+            ->get()->toArray();
+
+        if($toArray) {
+            self::toArray($options);
+        }
+
+        return $options;
+    }
+
+    public static function getAllOptions($toArray = false){
+
+        $options = DB::table('options AS o')
+            ->select(DB::raw('
+                o.name_ru,
+                o.name_ua, 
+                o.type,
+                GROUP_CONCAT(DISTINCT ov.id) AS char_values_id, 
+                GROUP_CONCAT(DISTINCT ov.value) AS char_values')
+            )
+            ->leftJoin('options_value AS ov', 'ov.c_id', '=', 'o.id')
+            ->groupBy('o.id')
             ->get()->toArray();
 
         if($toArray) {

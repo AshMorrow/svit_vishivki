@@ -1,0 +1,219 @@
+/*
+  pl - products list
+ */
+.pl-image div {
+  width: 50px;
+  height: 50px;
+}
+.pl-image div img {
+  max-width: 100%;
+  max-height: 100%;
+}
+/*
+
+ */
+.status-btn-group {
+  display: flex;
+  justify-content: flex-end;
+}
+.status-btn-group .trigger-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 5px;
+}
+/**
+images block
+pi - products images
+*/
+#product-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.products-images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.products-images-container .big-image {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.products-images-container .big-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.products-images-container .pi-thumbnail {
+  display: flex;
+  max-width: 300px;
+  flex-wrap: wrap;
+}
+.products-images-container .pi-thumbnail .active {
+  border-color: #ff4c4c;
+}
+.products-images-container .pi-thumbnail > div {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  padding: 5px;
+  color: #ccc;
+  position: relative;
+  transition: all 0.3s;
+}
+.products-images-container .pi-thumbnail > div.add-new:hover {
+  border-color: #999999;
+  color: #999999;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.products-images-container .pi-thumbnail > div img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.products-images-container .pi-thumbnail > div:hover .remove-image {
+  transition: all 0.3s;
+  display: flex;
+  cursor: pointer;
+}
+.products-images-container .pi-thumbnail > div .remove-image {
+  transition: all 0.3s;
+  width: 22px;
+  height: 22px;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: #ccc;
+  color: #000;
+}
+/*
+  Categories list
+ */
+#product-categories-container ul {
+  list-style: none;
+}
+#product-categories-container ul:first-child {
+  margin: 10px 10px;
+  padding: 0;
+}
+#product-categories-container ul li > div {
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+#product-categories-container ul li > div .category-name {
+  flex: 1;
+}
+#product-categories-container ul li > div .category-select-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+  margin-right: 5px;
+  border-right: 1px solid #ccc;
+  padding-right: 5px;
+}
+#product-categories-container ul li > div .category-select-btn:hover {
+  cursor: pointer;
+}
+.options-list {
+  list-style: none;
+}
+.options-list > li {
+  margin-bottom: 10px;
+}
+.options-list > li:last-child {
+  margin: 0;
+}
+.options-list .option-head {
+  padding: 5px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  border-bottom: 0;
+  box-shadow: 0 4px 14px -7px;
+}
+.options-list .option-head .option-name {
+  flex: 1;
+}
+.option-values-container {
+  list-style: none;
+  display: flex;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-top: 0;
+  align-items: center;
+}
+.option-values-container li {
+  margin-right: 5px;
+}
+.option-values-container li:last-child {
+  margin: 0;
+}
+.option-values-container input {
+  display: none;
+}
+.option-values-container input:checked + .option-value {
+  border-color: #ff4c4c;
+}
+.option-values-container .option-value {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #ccc;
+  padding: 3px;
+}
+.option-values-container .option-value:hover {
+  cursor: pointer;
+}
+.option-values-container .option-value div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*
+  collapse li
+ */
+.collapse-btn {
+  display: flex;
+  flex-grow: 1;
+}
+.collapse-btn:hover {
+  cursor: pointer;
+}
+.collapse-btn .collapse-arrow {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ccc;
+  transition: all 0.3s;
+}
+.collapse-btn .collapse-arrow:hover {
+  color: #999999;
+  cursor: pointer;
+}
+.collapse-btn .collapse-arrow.collapse-arrow-rotated {
+  transition: all 0.3s;
+  transform: rotate(-90deg);
+}

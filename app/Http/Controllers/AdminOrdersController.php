@@ -14,7 +14,7 @@ class AdminOrdersController extends Controller
     {
 
         $orderBy = $request->orderBy ?? 'created_at';
-        $orders = DB::table('orders')->select('*')->orderBy($orderBy, 'desc')->paginate(10);
+        $orders = DB::table('orders')->select('*')->orderBy($orderBy, 'desc')->paginate(20);
 
         return view('admin.ordersList', ['orders' => $orders]);
     }

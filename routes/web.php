@@ -48,9 +48,19 @@ Route::group(
   ],
   function (){
       Route::get('/admin','AdminController@mainPage');
+      //orders
       Route::get('/admin/orders','AdminOrdersController@getOrdersList');
       Route::get('/admin/orders/{id}','AdminOrdersController@orderDetails');
       Route::post('/admin/orders/{id}', 'AdminOrdersController@updateOrder');
+      //products
+      Route::get('/admin/products', 'AdminProductsController@getProductsList');
+      Route::get('/admin/products/create', 'AdminProductsController@createPage');
+      Route::post('/admin/products/create', function (){
+          dd($_POST);
+      });
+      //categories
+      Route::get('/admin/categories', 'AdminCategoriesController@show');
+
       Route::get('/admin/logout', 'Auth\LoginController@logout');
   }
 );

@@ -1,0 +1,245 @@
+@grey: #ccc;
+@active: #ff4c4c;
+
+.animation() {
+  transition: all 0.3s;
+}
+
+/*
+  pl - products list
+ */
+
+.pl-image {
+  div {
+    width: 50px;
+    height: 50px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+
+/*
+
+ */
+
+.status-btn-group {
+  display: flex;
+  justify-content: flex-end;
+  .trigger-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+  }
+}
+
+/**
+images block
+pi - products images
+*/
+#product-form{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.products-images-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .big-image {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .pi-thumbnail {
+    display: flex;
+    max-width: 300px;
+    flex-wrap: wrap;
+    .active{
+      border-color: @active;
+    }
+    & > div {
+      flex-shrink: 0;
+      width: 80px;
+      height: 80px;
+      border: 1px solid @grey;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5rem;
+      padding: 5px;
+      color: @grey;
+      position: relative;
+      .animation();
+      &.add-new:hover {
+        border-color: darken(@grey, 20%);
+        color: darken(@grey, 20%);
+        .animation();
+        cursor: pointer;
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+      &:hover .remove-image {
+        .animation();
+        display: flex;
+        cursor: pointer;
+      }
+      .remove-image {
+        .animation();
+        width: 22px;
+        height: 22px;
+        font-size: 1.5rem;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background: #ccc;
+        color: #000;
+      }
+    }
+  }
+
+}
+
+/*
+  Categories list
+ */
+
+#product-categories-container{
+  ul{
+    list-style: none;
+    &:first-child{
+      margin: 10px 10px;
+      padding: 0;
+    }
+    li{
+      &> div{
+        padding: 5px;
+        border: 1px solid @grey;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        .category-name{
+          flex: 1;
+        }
+
+        .category-select-btn{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 0;
+          margin-right: 5px;
+          border-right: 1px solid @grey;
+          padding-right: 5px;
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.options-list{
+  list-style: none;
+  & > li{
+    margin-bottom: 10px;
+    &:last-child{
+      margin: 0;
+    }
+  }
+  .option-head{
+    padding: 5px;
+    border: 1px solid @grey;
+    display: flex;
+    align-items: center;
+    border-bottom: 0;
+    box-shadow: 0 4px 14px -7px;
+    .option-name{
+      flex: 1;
+    }
+  }
+}
+.option-values-container{
+  list-style: none;
+  display: flex;
+  border: 1px solid @grey;
+  padding: 10px;
+  border-top: 0;
+  align-items: center;
+  li{
+    margin-right: 5px;
+    &:last-child{
+      margin: 0;
+    }
+  }
+  input{
+    display: none;
+  }
+  input:checked + .option-value{
+    border-color: @active;
+  }
+  .option-value{
+    width: 40px;
+    height: 40px;
+    border: 2px solid @grey;
+    padding: 3px;
+    &:hover{
+      cursor: pointer;
+    }
+    div{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+/*
+  collapse li
+ */
+
+.collapse-btn{
+  display: flex;
+  flex-grow: 1;
+  &:hover{
+    cursor: pointer;
+  }
+
+  .collapse-arrow{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: @grey;
+    .animation();
+    &:hover{
+      color: darken(@grey, 20%);
+      cursor: pointer;
+
+    }
+    &.collapse-arrow-rotated{
+      .animation();
+      transform: rotate(-90deg);
+    }
+  }
+}

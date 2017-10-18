@@ -3,7 +3,7 @@
     Зказ № {{ $orderData[0]->id }}
 @endsection
 @section('content')
-    <div class="box">
+    <div class="box box-danger">
         <div class="box-header">
             <h3 class="box-title">Зказ № {{ $orderData[0]->id }}</h3>
         </div>

@@ -239,6 +239,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         'Options'=> App\Helpers\Options::class,
+        'Categories'=> App\Helpers\Categories::class,
 
         /**
          * Localization
