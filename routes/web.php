@@ -55,9 +55,7 @@ Route::group(
       //products
       Route::get('/admin/products', 'AdminProductsController@getProductsList');
       Route::get('/admin/products/create', 'AdminProductsController@createPage');
-      Route::post('/admin/products/create', function (){
-          dd($_POST);
-      });
+      Route::post('/admin/products/create', 'AdminProductsController@create');
       //categories
       Route::get('/admin/categories', 'AdminCategoriesController@show');
 

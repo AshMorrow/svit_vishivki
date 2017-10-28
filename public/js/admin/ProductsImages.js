@@ -18,12 +18,14 @@ var ProductsImages = {
                                 canvas.height = 800;
                             }
                         } else if(this.height > this.width) {
+                            console.log('else if');
                             canvas.width = this.width * (800 / this.height);
                             canvas.height = 800;
-                        }else{
-                            canvas.width = this.width;
-                            canvas.height = this.height;
                         }
+                    }else{
+                        console.log('else');
+                        canvas.width = this.width;
+                        canvas.height = this.height;
                     }
 
 

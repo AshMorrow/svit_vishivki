@@ -17,9 +17,10 @@ var ProductsForm = {
             }
         }
 
-        category = $('[name=category]').is(':checked');
+        category = $('[name=category_id]').is(':checked');
         if(!category){
             showNotification('Выберите категорию', 'error');
+            return 0;
         }
 
         return 1;

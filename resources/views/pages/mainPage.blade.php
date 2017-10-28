@@ -40,7 +40,7 @@
                         <div class="item">
                             <div class="photo">
                                 <img src="/storage/productImages/thumbs/{{ $product->id }}/1.jpg" class="img-responsive"
-                                     alt="a"/>
+                                     alt="a" onerror="$(this).attr('src','/storage/productImages/thumbs/errors/no-image.jpg')"/>
                             </div>
                             <div class="info">
                                 <div class="price">
@@ -111,6 +111,10 @@
                     items: 2
                 },
                 1000: {
+                    items: 4
+                },
+
+                1200: {
                     items: 5
                 }
             }

@@ -6,7 +6,7 @@
                 <li>
                     <div>
                         <label class="category-select-btn c-checkbox-container">
-                            <input class="input-required" type="radio" name="category" value="{{$category->id}}">
+                            <input class="input-required" type="radio" name="category_id" value="{{$category->id}}">
                             <div>
                                 <div></div>
                             </div>

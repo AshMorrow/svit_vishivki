@@ -26,14 +26,14 @@
                         <div class="status-btn-group">
                             <label class="trigger-container">
                                 <span>Активный</span>
-                                <input type="checkbox">
+                                <input type="checkbox" name="is_active" value="1">
                                 <div class="trigger-bg">
                                     <div class="trigger-knob"></div>
                                 </div>
                             </label>
                             <label class="trigger-container">
                                 <span>Новый</span>
-                                <input type="checkbox">
+                                <input type="checkbox" name="is_new" value="1">
                                 <div class="trigger-bg">
                                     <div class="trigger-knob"></div>
                                 </div>
@@ -69,7 +69,9 @@
                                         <label>
                                             <span>Название {{ $properties['lan'] }}</span>
                                         </label>
-                                        <input type="text" class="form-control input-required"
+                                        <input type="text"
+                                               id="product_name_{{$properties['lan']}}"
+                                               class="form-control input-required"
                                                name="name_{{$properties['lan']}}"
                                                data-error="Заполните поле: Название {{$properties['lan']}}"
                                         >
@@ -102,12 +104,12 @@
                                        data-error="Заполните поле: Цена"
                                 >
                             </div>
-                            <div class="form-group">
-                                <label>
-                                    <span>URL</span>
-                                </label>
-                                <input type="text" class="form-control" name="url">
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label>--}}
+                                    {{--<span>URL</span>--}}
+                                {{--</label>--}}
+                                {{--<input id="product_url" type="text" class="form-control" name="url">--}}
+                            {{--</div>--}}
                         </div>
                     </div>
                 </div>
@@ -132,6 +134,7 @@
 
     <script>
         $(document).ready(function () {
+
             categoriesCollapse();
 
             $('#nav-tabs a').click(function (e) {
